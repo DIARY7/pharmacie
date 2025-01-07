@@ -81,7 +81,7 @@ public class ProduitController {
     public ModelAndView filtreProduit(@RequestParam int id_maladie,int id_categorie_age) {
         ModelAndView mv = new ModelAndView("template");
         mv.addObject("page", "pages/liste/liste-produit");
-        //mv.addObject("liste", prodRepo.findAll());
+        mv.addObject("liste", prodRepo.getFiltreProducts(id_maladie, id_categorie_age));
         mv.addObject("listeCategorieAge", catAgeRepo.findAll());
         mv.addObject("listeMaladie", maladieRepo.findAll());
         return mv;

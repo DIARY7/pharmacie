@@ -37,7 +37,7 @@
               </div>
               <div class="mb-3">
                 <label  class="form-label">Categorie Age : </label>
-                <select class="form-select" name="id_categorie_produit" id="exampleFormControlSelect1" aria-label="Default select example" >
+                <select class="form-select" name="id_categorie_age" id="exampleFormControlSelect1" aria-label="Default select example" >
                   <% for( CategorieAge catAge :  listeCategorieAge){ %>
                       <option value="<%= catAge.getId() %>"><%= catAge.getVal() %></option>
                   <% } %>

@@ -10,10 +10,10 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ProduitRepo extends JpaRepository<Produit, Integer> {
-    @Query("SELECT p.* FROM Produit p " +
-       "JOIN Curation c ON p.id = c.idProduit " +
-       "JOIN Maladie m ON c.idMaladie = m.id " +
-       "WHERE m.id = :idMaladie AND c.id_categorie_age = :idCategorieAge")
+    @Query("SELECT p FROM Produit p " +
+       "JOIN Curration c ON p.id = c.produit.id " +
+       "JOIN Maladie m ON c.maladie.id = m.id " +
+       "WHERE m.id = :idMaladie AND p.categorieAge.id = :idCategorieAge")
 List<Produit> getFiltreProducts(@Param("idMaladie") int idMaladie, @Param("idCategorieAge") int idCategorieAge);
 
 }
