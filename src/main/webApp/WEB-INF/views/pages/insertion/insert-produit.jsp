@@ -62,23 +62,6 @@
                 </select>
               </div>
 
-              <div class="mb-3">
-                <label for="age_min" class="form-label">Date Fabrication </label>
-                <input
-                  type="date"
-                  class="form-control"
-                  name="date_fabrication"
-                />
-              </div>
-
-              <div class="mb-3">
-                <label for="age_min" class="form-label">Date Peremption </label>
-                <input
-                  type="date"
-                  class="form-control"
-                  name="date_peremption"
-                />
-              </div>
               <button type="submit" class="btn btn-primary">Valider</button>
           </form>
       </div>

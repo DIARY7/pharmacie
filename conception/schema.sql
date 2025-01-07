@@ -29,17 +29,23 @@ CREATE TABLE produit(
     age_min INTEGER,
     id_categorie_produit INTEGER,
     id_laboratoire INTEGER,
-    date_fabrication DATE,
-    date_peremption DATE,
     FOREIGN KEY(id_categorie_produit) REFERENCES categorie_produit(id),
     FOREIGN KEY(id_laboratoire) REFERENCES laboratoire(id) 
 );
 
-CREATE TABLE livraison(
+CREATE TABLE fabrication(
     id SERIAL PRIMARY KEY,
     id_produit INTEGER,
-    prix_unitaire DECIMAL,
+    date_fabrication DATE,
+    date_peremption DATE,
     FOREIGN KEY(id_produit) REFERENCES produit(id)
+);
+
+CREATE TABLE livraison(
+    id SERIAL PRIMARY KEY,
+    id_fabrication INTEGER,
+    prix_unitaire DECIMAL,
+    FOREIGN KEY(id_fabrication) REFERENCES fabrication(id)
 );
 
 CREATE TABLE mvt_stock(
@@ -52,8 +58,7 @@ CREATE TABLE mvt_stock(
 );
 /* Manao Fifo raha misy sortie */
 
-
 /* Vu pour le Stock actuel */
-CREATE OR REPLACE VIEW etat_stock as  
-SELECT id_produit,SUM(entree) - SUM(sortie) as nombre FROM mvt_stock  
+-- CREATE OR REPLACE VIEW etat_stock as  
+-- SELECT id_produit,SUM(entree) - SUM(sortie) as nombre FROM mvt_stock  
 

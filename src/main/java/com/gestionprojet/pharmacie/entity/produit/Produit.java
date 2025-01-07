@@ -29,9 +29,6 @@ public class Produit {
     @JoinColumn(name = "id_laboratoire")
     Laboratoire laboratoire;
 
-    LocalDate dateFabrication;
-    LocalDate datePeremption;
-
     public Produit() {
     
     }

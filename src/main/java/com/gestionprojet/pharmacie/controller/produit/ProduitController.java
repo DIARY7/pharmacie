@@ -52,13 +52,10 @@ public class ProduitController {
 
     @PostMapping("/produit/new")
     public String save(@RequestParam(required = false) String nom, @RequestParam String description,@RequestParam(name="age_min") int ageMin
-    ,@RequestParam int id_categorie_produit,@RequestParam int id_labo,@RequestParam LocalDate date_fabrication,@RequestParam LocalDate date_peremption){
+    ,@RequestParam int id_categorie_produit,@RequestParam int id_labo){
         try {
             Produit produit = new Produit(nom, description, ageMin,catProRepo.findById(id_categorie_produit).orElseThrow(()->new Exception("Categorie n'existe pas")));
             produit.setLaboratoire(laboRepo.findById(id_labo).orElseThrow(()-> new Exception("Labo inexistant")));
-            produit.setDateFabrication(date_fabrication);
-            produit.setDatePeremption(date_peremption);
-
             prodRepo.save(produit);
         } catch (Exception e) {
             e.printStackTrace();

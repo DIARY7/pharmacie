@@ -65,6 +65,11 @@
               <div data-i18n="Basic">Type Produit</div>
             </a>
           </li>
+          <li class="menu-item">
+            <a href="/fabrication/form" class="menu-link">
+              <div data-i18n="Basic">Fabrication</div>
+            </a>
+          </li>
         </ul>
       </li>
 
@@ -92,6 +97,11 @@
           <li class="menu-item">
             <a href="/type-produit" class="menu-link">
               <div data-i18n="Basic">Type Produit</div>
+            </a>
+          </li>
+          <li class="menu-item">
+            <a href="/fabrication" class="menu-link">
+              <div data-i18n="Basic">Fabrication</div>
             </a>
           </li>
         </ul>
