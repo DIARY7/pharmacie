@@ -17,8 +17,8 @@ public class CategorieAge {
 
     String val; 
     
-    int agemin;
-    int agemax;
+    int ageMin;
+    int ageMax;
 
     public CategorieAge() {
     }

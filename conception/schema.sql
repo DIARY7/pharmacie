@@ -22,7 +22,7 @@ CREATE TABLE unite(
     val VARCHAR(50)
 );
 CREATE TABLE categorie_age(
-    id SERIAL,
+    id SERIAL PRIMARY KEY ,
     val VARCHAR(125),
     age_min INTEGER,
     age_max INTEGER
