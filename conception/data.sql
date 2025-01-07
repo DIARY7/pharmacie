@@ -1,4 +1,4 @@
--- Insertion de données dans la table type_produit
+ -- Insertion de données dans la table type_produit
 INSERT INTO type_produit (val) VALUES 
 ('Médicament'),
 ('Complément alimentaire'),
