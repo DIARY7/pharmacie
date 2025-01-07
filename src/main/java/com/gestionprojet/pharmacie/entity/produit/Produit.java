@@ -25,8 +25,8 @@ public class Produit {
     CategorieProduit categorieProduit;
 
     @ManyToOne
-    @JoinColumn
-    
+    @JoinColumn(name = "id_categorie_age")
+    CategorieAge categorieAge;
 
     @ManyToOne
     @JoinColumn(name = "id_laboratoire")

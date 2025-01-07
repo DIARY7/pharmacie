@@ -15,6 +15,8 @@ public class CategorieAge {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
 
+    String val; 
+    
     int agemin;
     int agemax;
 

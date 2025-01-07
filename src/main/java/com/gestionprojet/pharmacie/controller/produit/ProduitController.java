@@ -2,6 +2,8 @@ package com.gestionprojet.pharmacie.controller.produit;
 
 import com.gestionprojet.pharmacie.entity.produit.Produit;
 import com.gestionprojet.pharmacie.entity.produit.TypeProduit;
+import com.gestionprojet.pharmacie.repository.maladie.MaladieRepo;
+import com.gestionprojet.pharmacie.repository.produit.CategorieAgeRepo;
 import com.gestionprojet.pharmacie.repository.produit.CategorieProduitRepo;
 import com.gestionprojet.pharmacie.repository.produit.LaboratoireRepo;
 import com.gestionprojet.pharmacie.repository.produit.ProduitRepo;
@@ -30,11 +32,19 @@ public class ProduitController {
     @Autowired
     LaboratoireRepo laboRepo;
 
+    @Autowired
+    CategorieAgeRepo catAgeRepo;
+
+    @Autowired
+    MaladieRepo maladieRepo;
+
     @GetMapping("/produit")
     public ModelAndView getAllProduit(){
         ModelAndView mv= new ModelAndView("template");
         mv.addObject("page", "pages/liste/liste-produit");
         mv.addObject("liste", prodRepo.findAll());
+        mv.addObject("listeCategorieAge", catAgeRepo.findAll() );
+        mv.addObject("listeMaladie", maladieRepo.findAll());
         return mv;
     }
 
@@ -44,6 +54,7 @@ public class ProduitController {
         mv.addObject("page","pages/insertion/insert-produit");
         mv.addObject("listeCategorie",catProRepo.findAll());
         mv.addObject("listeLabo", laboRepo.findAll() );
+        mv.addObject("listeCategorieAge", catAgeRepo.findAll() );
         if (message!=null){
             mv.addObject("message",message);
         }
@@ -51,11 +62,12 @@ public class ProduitController {
     } 
 
     @PostMapping("/produit/new")
-    public String save(@RequestParam(required = false) String nom, @RequestParam String description,@RequestParam(name="age_min") int ageMin
+    public String save(@RequestParam(required = false) String nom, @RequestParam String description,@RequestParam int id_categorie_age
     ,@RequestParam int id_categorie_produit,@RequestParam int id_labo){
         try {
-            Produit produit = new Produit(nom, description, ageMin,catProRepo.findById(id_categorie_produit).orElseThrow(()->new Exception("Categorie n'existe pas")));
+            Produit produit = new Produit(nom, description,catProRepo.findById(id_categorie_produit).orElseThrow(()->new Exception("Categorie n'existe pas")));
             produit.setLaboratoire(laboRepo.findById(id_labo).orElseThrow(()-> new Exception("Labo inexistant")));
+            produit.setCategorieAge(catAgeRepo.findById(id_categorie_age).orElseThrow(()-> new Exception("Categorie inexistant")));
             prodRepo.save(produit);
         } catch (Exception e) {
             e.printStackTrace();
@@ -64,6 +76,17 @@ public class ProduitController {
         return "redirect:/produit/form?message=Insertion%20reussi";
         
     }
+
+    @GetMapping("/produit/filtre")
+    public ModelAndView filtreProduit(@RequestParam int id_maladie,int id_categorie_age) {
+        ModelAndView mv = new ModelAndView("template");
+        mv.addObject("page", "pages/liste/liste-produit");
+        //mv.addObject("liste", prodRepo.findAll());
+        mv.addObject("listeCategorieAge", catAgeRepo.findAll());
+        mv.addObject("listeMaladie", maladieRepo.findAll());
+        return mv;
+    }
+    
 
     /* Type produit */
     @GetMapping("/type-produit")

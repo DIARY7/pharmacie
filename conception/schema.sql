@@ -23,6 +23,7 @@ CREATE TABLE unite(
 );
 CREATE TABLE categorie_age(
     id SERIAL,
+    val VARCHAR(125),
     age_min INTEGER,
     age_max INTEGER
 );
@@ -50,6 +51,7 @@ CREATE TABLE maladie(
     id SERIAL PRIMARY KEY,
     nom VARCHAR
 );
+
 CREATE TABLE curration(
     id SERIAL PRIMARY KEY,
     id_produit INTEGER,

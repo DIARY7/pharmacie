@@ -2,9 +2,11 @@
 <%@ page import="java.util.List" %>
 <%@ page import="com.gestionprojet.pharmacie.entity.produit.CategorieProduit" %>
 <%@ page import="com.gestionprojet.pharmacie.entity.produit.Laboratoire" %>
+<%@ page import="com.gestionprojet.pharmacie.entity.produit.CategorieAge" %>
 <% 
   List<CategorieProduit> listeCategorie = (List<CategorieProduit>) request.getAttribute("listeCategorie");
   List<Laboratoire> listeLabo = (List<Laboratoire>) request.getAttribute("listeLabo");
+  List<CategorieAge> listeCategorieAge = (List<CategorieAge>) request.getAttribute("listeCategorieAge");
 %>
 <div class="col-md-8">
     <div class="card mb-4">
@@ -34,14 +36,12 @@
                 </div>
               </div>
               <div class="mb-3">
-                <label for="age_min" class="form-label">Age minimum </label>
-                <input
-                  type="number"
-                  class="form-control"
-                  id="age_min"
-                  value="0"
-                  name="age_min"
-                />
+                <label  class="form-label">Categorie Age : </label>
+                <select class="form-select" name="id_categorie_produit" id="exampleFormControlSelect1" aria-label="Default select example" >
+                  <% for( CategorieAge catAge :  listeCategorieAge){ %>
+                      <option value="<%= catAge.getId() %>"><%= catAge.getVal() %></option>
+                  <% } %>
+                </select>
               </div>
               <div class="mb-3">
                 <label  class="form-label">Categorie : </label>
