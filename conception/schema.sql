@@ -40,6 +40,17 @@ CREATE TABLE fabrication(
     date_peremption DATE,
     FOREIGN KEY(id_produit) REFERENCES produit(id)
 );
+CREATE TABLE maladie(
+    id SERIAL PRIMARY KEY,
+    nom VARCHAR
+);
+CREATE TABLE curration(
+    id SERIAL PRIMARY KEY,
+    id_produit INTEGER,
+    id_maladie INTEGER,
+    FOREIGN KEY(id_maladie) REFERENCES maladie(id),
+    FOREIGN KEY(id_produit) REFERENCES produit(id)
+);
 
 CREATE TABLE livraison(
     id SERIAL PRIMARY KEY,
