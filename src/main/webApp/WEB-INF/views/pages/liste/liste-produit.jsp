@@ -15,6 +15,7 @@
               <th>Nom</th>
               <th>Categorie</th>
               <th>Age_min</th>
+              <td>Date Peremption</td>
               <th>Description</th>
             </tr>
           </thead>
@@ -26,6 +27,7 @@
                         <td><%= prod.getNom() %></td>
                         <td><%= prod.getCategorieProduit().getVal() %></td>
                         <td><%= prod.getAgeMin() %></td>
+                        <td><%= prod.getDatePeremption() %></td>
                         <td><%= prod.getDescription() %></td>
                     </tr>
             <%    }

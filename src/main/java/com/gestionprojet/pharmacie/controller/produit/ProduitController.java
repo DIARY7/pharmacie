@@ -8,7 +8,6 @@ import com.gestionprojet.pharmacie.repository.produit.ProduitRepo;
 import com.gestionprojet.pharmacie.repository.produit.TypeProduitRepo;
 
 import java.time.LocalDate;
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -44,6 +43,7 @@ public class ProduitController {
         ModelAndView mv = new ModelAndView("template");
         mv.addObject("page","pages/insertion/insert-produit");
         mv.addObject("listeCategorie",catProRepo.findAll());
+        mv.addObject("listeLabo", laboRepo.findAll() );
         if (message!=null){
             mv.addObject("message",message);
         }
@@ -55,6 +55,10 @@ public class ProduitController {
     ,@RequestParam int id_categorie_produit,@RequestParam int id_labo,@RequestParam LocalDate date_fabrication,@RequestParam LocalDate date_peremption){
         try {
             Produit produit = new Produit(nom, description, ageMin,catProRepo.findById(id_categorie_produit).orElseThrow(()->new Exception("Categorie n'existe pas")));
+            produit.setLaboratoire(laboRepo.findById(id_labo).orElseThrow(()-> new Exception("Labo inexistant")));
+            produit.setDateFabrication(date_fabrication);
+            produit.setDatePeremption(date_peremption);
+
             prodRepo.save(produit);
         } catch (Exception e) {
             e.printStackTrace();

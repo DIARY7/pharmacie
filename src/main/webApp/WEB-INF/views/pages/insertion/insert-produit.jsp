@@ -1,8 +1,10 @@
 <%@ page language="java" contentType="text/html;charset=UTF-8" %>
 <%@ page import="java.util.List" %>
 <%@ page import="com.gestionprojet.pharmacie.entity.produit.CategorieProduit" %>
+<%@ page import="com.gestionprojet.pharmacie.entity.produit.Laboratoire" %>
 <% 
   List<CategorieProduit> listeCategorie = (List<CategorieProduit>) request.getAttribute("listeCategorie");
+  List<Laboratoire> listeLabo = (List<Laboratoire>) request.getAttribute("listeLabo");
 %>
 <div class="col-md-8">
     <div class="card mb-4">
@@ -49,6 +51,33 @@
                   <% } %>
                   
                 </select>
+              </div>
+              <div class="mb-3">
+                <label  class="form-label">Laboratoire : </label>
+                <select class="form-select" name="id_labo" id="exampleFormControlSelect1" aria-label="Default select example" >
+                  <% for( Laboratoire labo :  listeLabo){ %>
+                      <option value="<%= labo.getId() %>"><%= labo.getNom() %></option>
+                  <% } %>
+                  
+                </select>
+              </div>
+
+              <div class="mb-3">
+                <label for="age_min" class="form-label">Date Fabrication </label>
+                <input
+                  type="date"
+                  class="form-control"
+                  name="date_fabrication"
+                />
+              </div>
+
+              <div class="mb-3">
+                <label for="age_min" class="form-label">Date Peremption </label>
+                <input
+                  type="date"
+                  class="form-control"
+                  name="date_peremption"
+                />
               </div>
               <button type="submit" class="btn btn-primary">Valider</button>
           </form>

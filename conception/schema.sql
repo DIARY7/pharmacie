@@ -39,8 +39,6 @@ CREATE TABLE livraison(
     id SERIAL PRIMARY KEY,
     id_produit INTEGER,
     prix_unitaire DECIMAL,
-    id_unite INTEGER,
-    FOREIGN KEY(id_unite) REFERENCES unite(id),
     FOREIGN KEY(id_produit) REFERENCES produit(id)
 );
 
