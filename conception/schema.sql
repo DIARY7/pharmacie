@@ -21,16 +21,22 @@ CREATE TABLE unite(
     id SERIAL,
     val VARCHAR(50)
 );
+CREATE TABLE categorie_age(
+    id SERIAL,
+    age_min INTEGER,
+    age_max INTEGER
+);
 
 CREATE TABLE produit(
     id SERIAL PRIMARY KEY,
     nom VARCHAR,
     description TEXT,
-    age_min INTEGER,
     id_categorie_produit INTEGER,
     id_laboratoire INTEGER,
+    id_categorie_age INTEGER,
     FOREIGN KEY(id_categorie_produit) REFERENCES categorie_produit(id),
-    FOREIGN KEY(id_laboratoire) REFERENCES laboratoire(id) 
+    FOREIGN KEY(id_laboratoire) REFERENCES laboratoire(id),
+    FOREIGN KEY(id_categorie_age) REFERENCES categorie_age(id)
 );
 
 CREATE TABLE fabrication(

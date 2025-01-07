@@ -20,10 +20,13 @@ public class Produit {
     int id;
     String nom;
     String description;
-    int ageMin;
     @ManyToOne
     @JoinColumn(name = "id_categorie_produit")
     CategorieProduit categorieProduit;
+
+    @ManyToOne
+    @JoinColumn
+    
 
     @ManyToOne
     @JoinColumn(name = "id_laboratoire")
@@ -32,10 +35,9 @@ public class Produit {
     public Produit() {
     
     }
-    public Produit(String nom, String description, int ageMin, CategorieProduit categorieProduit) {
+    public Produit(String nom, String description, CategorieProduit categorieProduit) {
         this.nom = nom;
         this.description = description;
-        this.ageMin = ageMin;
         this.categorieProduit = categorieProduit;
     }
     
