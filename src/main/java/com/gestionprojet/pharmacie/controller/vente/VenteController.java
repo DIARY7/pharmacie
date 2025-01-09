@@ -1,5 +1,7 @@
 package com.gestionprojet.pharmacie.controller.vente;
 
+import java.time.LocalDate;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,9 +12,12 @@ import org.springframework.web.servlet.ModelAndView;
 import com.gestionprojet.pharmacie.entity.produit.CategorieAge;
 import com.gestionprojet.pharmacie.entity.produit.CategorieProduit;
 import com.gestionprojet.pharmacie.entity.produit.Produit;
+import com.gestionprojet.pharmacie.entity.vente.Vente;
 import com.gestionprojet.pharmacie.repository.produit.CategorieAgeRepo;
 import com.gestionprojet.pharmacie.repository.produit.CategorieProduitRepo;
 import com.gestionprojet.pharmacie.repository.produit.FabricationRepo;
+import com.gestionprojet.pharmacie.repository.vente.ClientRepo;
+import com.gestionprojet.pharmacie.repository.vente.VenteRepo;
 
 @Controller
 public class VenteController {
@@ -55,18 +60,16 @@ public class VenteController {
     } 
 
     @PostMapping("/vente/new")
-    public String save(@RequestParam(required = false) String nom, @RequestParam String description,@RequestParam int id_categorie_age
-    ,@RequestParam int id_categorie_produit,@RequestParam int id_labo){
+    public String save(@RequestParam int id_fabrication , @RequestParam double nombre,@RequestParam LocalDate daty
+    ,@RequestParam int id_client){
         try {
-            Produit produit = new Produit(nom, description,catProRepo.findById(id_categorie_produit).orElseThrow(()->new Exception("Categorie n'existe pas")));
-            produit.setLaboratoire(laboRepo.findById(id_labo).orElseThrow(()-> new Exception("Labo inexistant")));
-            produit.setCategorieAge(catAgeRepo.findById(id_categorie_age).orElseThrow(()-> new Exception("Categorie inexistant")));
-            prodRepo.save(produit);
+            Vente vente = new Vente(nombre,daty);
+            
         } catch (Exception e) {
             e.printStackTrace();
-            return "redirect:/produit/form?message="+e.getMessage();
+            return "redirect:/vente/form?message="+e.getMessage();
         }
-        return "redirect:/produit/form?message=Insertion%20reussi";
+        return "redirect:/vente/form?message=Insertion%20reussi";
         
     }
 }

@@ -20,7 +20,7 @@
               </select>
             </div>
             <div class="mb-3">
-                <label for="age_min" class="form-label">Nombre </label>
+                <label for="" class="form-label">Nombre </label>
                 <input
                   type="number"
                   class="form-control"
@@ -39,7 +39,7 @@
 
               <div class="mb-3">
                 <label for=""class="form-label" >Client : </label>
-                <select class="form-select" name="id_fabrication">
+                <select class="form-select" name="id_client">
                   <% for(Client clt: listeClient){ %>
                     <option value="<%= clt.getId() %>"><%= clt.getNom()  %></option>
                   <% } %>

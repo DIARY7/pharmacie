@@ -21,7 +21,7 @@ public class Vente {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
 
-    int nombre; 
+    double nombre; 
     LocalDate daty;
 
     @ManyToOne
@@ -32,6 +32,10 @@ public class Vente {
     @JoinColumn(name="id_client",referencedColumnName = "id")
     Client client;
     
+    public Vente(double nombre, LocalDate daty) {
+        this.nombre = nombre;
+        this.daty = daty;
+    }
     public Vente() {
     }
 }
