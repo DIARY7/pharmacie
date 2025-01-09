@@ -1,0 +1,44 @@
+<%@ page language="java" contentType="text/html;charset=UTF-8" %>
+<%@ page import="java.util.List" %>
+<%@ page import="com.gestionprojet.pharmacie.entity.produit.Fabrication" %>
+<%@ page import="com.gestionprojet.pharmacie.entity.vente.Client" %>
+
+<% 
+  List<Fabrication> listeFabrication = (List<Fabrication>) request.getAttribute("listeFabrication");
+  List<Client> listeClient = (List<Client>) request.getAttribute("listeClient");
+%>
+<div class="col-md-8">
+    <div class="card mb-4">
+      <h5 class="card-header">Insertion Vente</h5>
+      <div class="card-body">
+        <form action="/vente/new" method="POST">
+            <div class="mb-3">
+              <label for=""class="form-label" >Produit : </label>
+              <select class="form-select" name="id_produit">
+                <% for(Fabrication fab: listeFabrication){ %>
+                  <option value="<%= fab.getId() %>"><%= fab.getProduit().getId()  %></option>
+                <% } %>
+              </select>
+            </div>
+            <div class="mb-3">
+                <label for="age_min" class="form-label">Nombre </label>
+                <input
+                  type="number"
+                  class="form-control"
+                  name="date_fabrication"
+                />
+              </div>
+
+              <div class="mb-3">
+                <label for="age_min" class="form-label">Date Peremption </label>
+                <input
+                  type="date"
+                  class="form-control"
+                  name="date_peremption"
+                />
+              </div>
+              <button type="submit" class="btn btn-primary">Valider</button>
+        </form>
+      </div>  
+    </div>
+</div>

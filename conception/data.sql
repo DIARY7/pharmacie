@@ -8,7 +8,8 @@ INSERT INTO type_produit (val) VALUES
 INSERT INTO categorie_produit (val, id_type_produit) VALUES 
 ('Analgésiques', 1),
 ('Vitamines', 2),
-('Crèmes hydratantes', 3);
+('Crèmes hydratantes', 3),
+('Injectable',1);
 
 INSERT INTO laboratoire (nom, lieu) VALUES 
 ('Laboratoire Sanofi', 'Paris, France'),

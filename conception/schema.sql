@@ -76,6 +76,22 @@ CREATE TABLE mvt_stock(
     daty DATE,
     FOREIGN KEY(id_livraison) REFERENCES livraison(id)
 );
+
+CREATE TABLE client(
+    id SERIAL PRIMARY KEY ,
+    nom VARCHAR(120)
+);
+CREATE TABLE vente(
+    id SERIAL PRIMARY KEY,
+    id_fabrication INTEGER,
+    nombre DECIMAL,
+    daty DATE,
+    id_client INTEGER,
+    FOREIGN KEY(id_fabrication) REFERENCES fabrication(id),
+    FOREIGN KEY(id_client) REFERENCES client(id)
+);
+INSERT INTO client(nom) VALUES ("Jean");
+
 /* Manao Fifo raha misy sortie */
 
 /* Vu pour le Stock actuel */
