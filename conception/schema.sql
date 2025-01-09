@@ -90,7 +90,6 @@ CREATE TABLE vente(
     FOREIGN KEY(id_fabrication) REFERENCES fabrication(id),
     FOREIGN KEY(id_client) REFERENCES client(id)
 );
-INSERT INTO client(nom) VALUES ("Jean");
 
 /* Manao Fifo raha misy sortie */
 

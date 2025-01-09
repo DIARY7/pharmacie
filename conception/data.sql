@@ -43,5 +43,12 @@ INSERT INTO curration (id_produit,id_maladie) VALUES
 (3,3),
 (4,1);
 
+/* 2e  */
+INSERT INTO client(nom) VALUES("Jean");
+INSERT INTO client(nom) VALUES("Jack");
+INSERT INTO client(nom) VALUES("Goldman");
 
-
+INSERT INTO fabrication (id_produit , date_fabrication , date_peremption ) VALUES (1,'2024-01-01','2025-01-01');
+INSERT INTO fabrication (id_produit , date_fabrication , date_peremption ) VALUES (2,'2024-01-01','2025-01-01');
+INSERT INTO fabrication (id_produit , date_fabrication , date_peremption ) VALUES (3,'2024-01-01','2025-01-01');
+INSERT INTO fabrication (id_produit , date_fabrication , date_peremption ) VALUES (4,'2024-01-01','2025-01-01');

@@ -2,7 +2,6 @@
 <%@ page import="java.util.List" %>
 <%@ page import="com.gestionprojet.pharmacie.entity.produit.Fabrication" %>
 <%@ page import="com.gestionprojet.pharmacie.entity.vente.Client" %>
-
 <% 
   List<Fabrication> listeFabrication = (List<Fabrication>) request.getAttribute("listeFabrication");
   List<Client> listeClient = (List<Client>) request.getAttribute("listeClient");
@@ -14,7 +13,7 @@
         <form action="/vente/new" method="POST">
             <div class="mb-3">
               <label for=""class="form-label" >Produit : </label>
-              <select class="form-select" name="id_produit">
+              <select class="form-select" name="id_fabrication">
                 <% for(Fabrication fab: listeFabrication){ %>
                   <option value="<%= fab.getId() %>"><%= fab.getProduit().getId()  %></option>
                 <% } %>
@@ -25,18 +24,28 @@
                 <input
                   type="number"
                   class="form-control"
-                  name="date_fabrication"
+                  name="nombre"
                 />
               </div>
 
               <div class="mb-3">
-                <label for="age_min" class="form-label">Date Peremption </label>
+                <label for="age_min" class="form-label">Date  </label>
                 <input
                   type="date"
                   class="form-control"
-                  name="date_peremption"
+                  name="daty"
                 />
               </div>
+
+              <div class="mb-3">
+                <label for=""class="form-label" >Client : </label>
+                <select class="form-select" name="id_fabrication">
+                  <% for(Client clt: listeClient){ %>
+                    <option value="<%= clt.getId() %>"><%= clt.getNom()  %></option>
+                  <% } %>
+                </select>
+              </div>
+
               <button type="submit" class="btn btn-primary">Valider</button>
         </form>
       </div>  
