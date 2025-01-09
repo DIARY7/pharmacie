@@ -24,10 +24,10 @@ INSERT INTO categorie_age (age_min,age_max,val) VALUES
 
 -- Insertion de données dans la table produit
 INSERT INTO produit (nom, description, id_categorie_age, id_categorie_produit,id_laboratoire) VALUES 
-('Paracétamol', 'Soulage la douleur et réduit la fièvre.',4, 1,2),
-('Vitamine C', 'Renforce le système immunitaire.', 5, 2,3),
-('Crème hydratante visage', 'Hydrate et protège la peau.',4,3,1),
-('Alfa-aylase','reduit les maux de gorge',6,1,2);
+('Paracétamol', 'Soulage la douleur et réduit la fièvre.',1, 1,2),
+('Vitamine C', 'Renforce le système immunitaire.', 2, 2,3),
+('Crème hydratante visage', 'Hydrate et protège la peau.',1,3,1),
+('Alfa-aylase','reduit les maux de gorge',3,1,2);
 
 -- Insertion de données dans la table maladie
 INSERT INTO maladie (nom) VALUES 
@@ -37,9 +37,10 @@ INSERT INTO maladie (nom) VALUES
 
 -- Insertion de données dans la table curration
 INSERT INTO curration (id_produit,id_maladie) VALUES 
-(9,1),
-(10,2),
-(11,3),
-(12,1);
+(1,1),
+(2,2),
+(3,3),
+(4,1);
+
 
 

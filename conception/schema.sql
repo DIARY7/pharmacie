@@ -47,6 +47,7 @@ CREATE TABLE fabrication(
     date_peremption DATE,
     FOREIGN KEY(id_produit) REFERENCES produit(id)
 );
+
 CREATE TABLE maladie(
     id SERIAL PRIMARY KEY,
     nom VARCHAR
@@ -81,3 +82,8 @@ CREATE TABLE mvt_stock(
 -- CREATE OR REPLACE VIEW etat_stock as  
 -- SELECT id_produit,SUM(entree) - SUM(sortie) as nombre FROM mvt_stock  
 
+/* Mi recherche sequence */
+/*SELECT pg_get_serial_sequence('produit', 'id'); */
+
+/* Mi-reinitialiser sequence */
+/* ALTER SEQUENCE public.produit_id_seq RESTART WITH 1; */
