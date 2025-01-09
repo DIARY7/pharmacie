@@ -17,5 +17,5 @@ public interface VenteRepo extends JpaRepository<Vente, Integer> {
        "JOIN Fabrication f ON f.id = v.fabrication.id " +
        "JOIN Produit p ON p.id = f.produit.id " +
        "WHERE p.categorieProduit = :idCategorieProduit AND p.categorieAge.id = :idCategorieAge")
-List<Produit> getFiltreVente(@Param("idCategorieProduit") int idCategorieProduit, @Param("idCategorieAge") int idCategorieAge);
+List<Vente> getFiltreVente(@Param("idCategorieProduit") int idCategorieProduit, @Param("idCategorieAge") int idCategorieAge);
 }
