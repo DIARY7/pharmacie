@@ -107,6 +107,29 @@
         </ul>
       </li>
 
+      <li class="menu-header small text-uppercase">
+        <span class="menu-header-text">Vente</span>
+      </li>
+
+      <li class="menu-item">
+        <a href="javascript:void(0);" class="menu-link menu-toggle">
+          <i class="menu-icon tf-icons bx bx-collection"></i>
+          <div data-i18n="Authentications">Ventes</div>
+        </a>
+        <ul class="menu-sub">
+          <li class="menu-item">
+            <a href="/vente" class="menu-link">
+              <div data-i18n="Basic">Liste</div>
+            </a>
+          </li>
+          <li class="menu-item">
+            <a href="/vente/form" class="menu-link">
+              <div data-i18n="Basic">insertion</div>
+            </a>
+          </li>
+        </ul>
+      </ul>
+
       <!-- <li class="menu-item">
         <a href="javascript:void(0);" class="menu-link menu-toggle">
           <i class="menu-icon tf-icons bx bx-cube-alt"></i>

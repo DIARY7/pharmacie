@@ -37,7 +37,8 @@ INSERT INTO produit (nom, description, id_categorie_age, id_categorie_produit,id
 ('Sirop contre la toux', 'Soulage la toux chez les enfants.', 1, 1, 1),
 ('Gélules Oméga 3', 'Améliore la santé cognitive.', 2, 2, 3),
 ('Crème solaire enfant', 'Protège la peau des rayons UV.', 1, 3, 2),
-('Gel dentaire', 'Soulage les douleurs dentaires des enfants.', 1, 1, 3);
+('Gel dentaire', 'Soulage les douleurs dentaires des enfants.', 1, 1, 3),
+('Vaccin Hépatite B pour adulte', 'Protège contre le virus de hépatite B.', 3, 4, 1);
 
 -- Insertion de données dans la table maladie
 INSERT INTO maladie (nom) VALUES 
@@ -75,4 +76,13 @@ INSERT INTO fabrication (id_produit , date_fabrication , date_peremption ) VALUE
 INSERT INTO fabrication (id_produit , date_fabrication , date_peremption ) VALUES (11,'2024-01-01','2025-01-01');
 INSERT INTO fabrication (id_produit , date_fabrication , date_peremption ) VALUES (12,'2024-01-01','2025-01-01');
 INSERT INTO fabrication (id_produit , date_fabrication , date_peremption ) VALUES (13,'2024-01-01','2025-01-01');
+INSERT INTO fabrication (id_produit , date_fabrication , date_peremption ) VALUES (14,'2024-01-01','2025-01-01');
 
+/* Les injectables sont */
+
+/* 
+    5 - Vaccins epathite B
+    6 - 
+    7 -
+    8 - 
+ */

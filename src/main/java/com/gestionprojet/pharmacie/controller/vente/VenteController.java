@@ -37,7 +37,7 @@ public class VenteController {
     FabricationRepo fabRepo;
 
     @GetMapping("/vente")
-    public ModelAndView getAllProduit(){
+    public ModelAndView getAllVente(){
         ModelAndView mv= new ModelAndView("template");
         mv.addObject("page", "pages/vente/liste-vente");
         mv.addObject("liste", venteRepo.findAll());
@@ -59,17 +59,31 @@ public class VenteController {
         return mv;
     } 
 
+
+
     @PostMapping("/vente/new")
     public String save(@RequestParam int id_fabrication , @RequestParam double nombre,@RequestParam LocalDate daty
     ,@RequestParam int id_client){
         try {
             Vente vente = new Vente(nombre,daty);
-            
+            vente.setClient(clientRepo.findById(id_client).orElseThrow(()-> new Exception("Client innexistant")));
+            vente.setFabrication(fabRepo.findById(id_fabrication).orElseThrow(()-> new Exception("Fabrication innexistant")));
+            venteRepo.save(vente);
         } catch (Exception e) {
             e.printStackTrace();
             return "redirect:/vente/form?message="+e.getMessage();
         }
         return "redirect:/vente/form?message=Insertion%20reussi";
         
+    }
+
+    @GetMapping("/vente/filtre")
+    public ModelAndView filtreVentre(@RequestParam int id_categorie_produit,int id_categorie_age ) {
+        ModelAndView mv = new ModelAndView("template");
+        mv.addObject("page", "pages/vente/liste-vente");
+        mv.addObject("liste", venteRepo.getFiltreVente(id_categorie_produit, id_categorie_age));
+        mv.addObject("listeCatProd", catProdRepo.findAll() );
+        mv.addObject("listeCatAge", catAgeRepo.findAll() );
+        return mv;
     }
 }
