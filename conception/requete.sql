@@ -12,3 +12,18 @@ JOIN
 WHERE 
     m.nom = 'maux de gorge'
     AND ca.val = 'enfant';
+
+    select p.* 
+    from 
+    vente as v 
+    join 
+    fabrication as f on v.id_fabrication =f.id
+    join
+    produit as p on p.id=f.id_produit 
+    join 
+    categorie_produit as c on p.id_categorie_produit=c.id 
+    join 
+    categorie_age as ca on p.id_categorie_age=ca.id
+    where 
+    c.val="injectable"
+    and ca.val="enfant";
