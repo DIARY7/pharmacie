@@ -9,7 +9,7 @@
     List<CategorieProduit> listeCatProd = (List) request.getAttribute("listeCatProd"); 
 %>
 <div class="container-xxl flex-grow-1 container-p-y">
-    <h4 class="fw-bold py-3 mb-4"> Liste produits</h4>
+    <h4 class="fw-bold py-3 mb-4"> Liste ventes</h4>
     <div class="container row" >
       <form action="/vente/filtre" method="get">
         <div class="mb-3">
