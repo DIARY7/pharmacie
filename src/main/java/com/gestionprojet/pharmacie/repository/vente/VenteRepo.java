@@ -1,6 +1,5 @@
 package com.gestionprojet.pharmacie.repository.vente;
 
-import com.gestionprojet.pharmacie.entity.produit.Produit;
 import com.gestionprojet.pharmacie.entity.vente.Vente;
 
 import java.util.List;

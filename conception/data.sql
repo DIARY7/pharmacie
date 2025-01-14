@@ -78,6 +78,16 @@ INSERT INTO fabrication (id_produit , date_fabrication , date_peremption ) VALUE
 INSERT INTO fabrication (id_produit , date_fabrication , date_peremption ) VALUES (13,'2024-01-01','2025-01-01');
 INSERT INTO fabrication (id_produit , date_fabrication , date_peremption ) VALUES (14,'2024-01-01','2025-01-01');
 
+--insertion des donnees dans la table con
+INSERT INTO conseil (mois ,annee , id_produit ) VALUES
+(1,2025,8),
+(1,2025,13),
+(1,2025,10),
+(2,2025,4),
+(2,2025,2),
+(3,2025,12),
+(3,2025,3);
+
 /* Les injectables sont */
 
 /* 
