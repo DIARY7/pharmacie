@@ -1,32 +1,31 @@
-package com.gestionprojet.pharmacie.entity;
-
-
-import com.gestionprojet.pharmacie.entity.produit.Fabrication;
-
+package com.gestionprojet.pharmacie.entity.produit;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
 import lombok.Data;
 
 @Entity
-@Table(name="livraison")
 @Data
-public class  Livraison{
+public class Conseil {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
 
+    int mois;
+    int annee;
+
     @ManyToOne
-    @JoinColumn(name = "id_fabrication")
-    Fabrication fabrication;
+    @JoinColumn(name = "id_produit")
+    Produit produit;
 
-    double prixunitaire;
-
-    public Livraison() {
+    public Conseil() {
     }
-
+    public Conseil(int mois, int annee, Produit produit) {
+        this.mois = mois;
+        this.annee = annee;
+        this.produit = produit;
+    }
 }
