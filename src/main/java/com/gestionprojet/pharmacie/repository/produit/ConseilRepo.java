@@ -17,4 +17,11 @@ public interface ConseilRepo extends JpaRepository<Conseil, Integer> {
        "JOIN Conseil c ON p.id = c.produit.id " +
        "WHERE c.mois = :mois AND c.annee = :annee")
 List<Produit> getFiltreConseil(@Param("mois") int mois, @Param("annee") int annee);
+
+@Query("SELECT p FROM Produit p " +
+       "JOIN Conseil c ON p.id = c.produit.id " +
+       "WHERE c.mois = :mois AND c.annee = :annee " +
+       " AND c.produit.id= :produit")
+List<Produit> checkInConseil(@Param("mois") int mois, @Param("annee") int annee,@Param("produit") int produit);
+
 }

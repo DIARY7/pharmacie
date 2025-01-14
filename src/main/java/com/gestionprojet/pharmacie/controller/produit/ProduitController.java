@@ -10,6 +10,7 @@ import com.gestionprojet.pharmacie.repository.produit.ConseilRepo;
 import com.gestionprojet.pharmacie.repository.produit.LaboratoireRepo;
 import com.gestionprojet.pharmacie.repository.produit.ProduitRepo;
 import com.gestionprojet.pharmacie.repository.produit.TypeProduitRepo;
+import com.gestionprojet.pharmacie.service.produit.ProduitService;
 
 import java.time.LocalDate;
 
@@ -22,6 +23,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class ProduitController {
+    @Autowired
+    ProduitService prodService;
+
     @Autowired
     CategorieProduitRepo catProRepo;
 
@@ -130,6 +134,7 @@ public class ProduitController {
     @PostMapping("/produit_conseil/new")
     public String saveConseil(@RequestParam int id_produit  , @RequestParam int mois,@RequestParam int annee){
         try {
+            prodService.checkInConseil(mois, annee, id_produit);
             Conseil conseil = new Conseil(mois,annee,prodRepo.findById(id_produit).orElseThrow(()-> new Exception("Produit introuvable") )) ;
             conseilRepo.save(conseil);
         } catch (Exception e) {

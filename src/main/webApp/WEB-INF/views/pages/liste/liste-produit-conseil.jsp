@@ -7,17 +7,31 @@
      
 %>
 <div class="container-xxl flex-grow-1 container-p-y">
-    <h4 class="fw-bold py-3 mb-4"> Liste produits</h4>
+    <h4 class="fw-bold py-3 mb-4"> Liste produits conseils </h4>
     <div class="container row" >
       <form action="/produit_conseil/filtre" method="get">
         <div class="mb-2">
           <label for="mois-label">Mois</label>
-          <input class="form-select" type="number"   name="mois" id="mois-label">
+          <select class="form-select" name="mois" id="">
+            <option value="1">Janvier</option>
+            <option value="2">Fevrier</option>
+            <option value="3">Mars</option>
+            <option value="4">Avril</option>
+            <option value="5">Mai</option>
+            <option value="6">Juin</option>
+            <option value="7">Juillet</option>
+            <option value="8">Aout</option>
+            <option value="9">Septembre</option>
+            <option value="10">Octobre</option>
+            <option value="11">Novembre</option>
+            <option value="12">Decembre</option>
+            
+        </select>
         </div>
         <div class="mb-2"></div>
         <div class="mb-2">
           <label for="form-label">Annee</label>
-          <input type="number" class="form-select" name="annee" id="annee-label">
+          <input type="number" class="form-select" value="2025" name="annee" id="annee-label">
         </div>
         <div class="mb3" style="margin-bottom:20px;">
           <button class="btn btn-primary">Search</button>
