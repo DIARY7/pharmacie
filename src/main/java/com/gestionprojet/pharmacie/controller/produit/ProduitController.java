@@ -5,6 +5,7 @@ import com.gestionprojet.pharmacie.entity.produit.TypeProduit;
 import com.gestionprojet.pharmacie.repository.maladie.MaladieRepo;
 import com.gestionprojet.pharmacie.repository.produit.CategorieAgeRepo;
 import com.gestionprojet.pharmacie.repository.produit.CategorieProduitRepo;
+import com.gestionprojet.pharmacie.repository.produit.ConseilRepo;
 import com.gestionprojet.pharmacie.repository.produit.LaboratoireRepo;
 import com.gestionprojet.pharmacie.repository.produit.ProduitRepo;
 import com.gestionprojet.pharmacie.repository.produit.TypeProduitRepo;
@@ -142,10 +143,27 @@ public class ProduitController {
     public ModelAndView toFormProduitConseil(@RequestParam(required=false) String message){
         ModelAndView mv = new ModelAndView("template");
         mv.addObject("page","pages/insertion/insert-conseil");
-        mv.addObject(  , );
+        mv.addObject( "liste_produit" , prodRepo.findAll());
         if (message!=null){
             mv.addObject("message",message);
         }
         return mv;
-    }  
+    }
+    
+    @GetMapping("/produit_conseil/filtre")
+    public ModelAndView filtreProduitConseil(@RequestParam int mois,int annee) {
+        ModelAndView mv = new ModelAndView("template");
+        mv.addObject("page", "pages/liste/liste-produit-conseil");
+        mv.addObject("liste", conseilRepo.getFiltreConseil(mois, annee));
+        return mv;
+    }
+
+    @GetMapping("/produit_conseil")
+    public ModelAndView getAllProduitConseil(){
+        ModelAndView mv= new ModelAndView("template");
+        mv.addObject("page", "pages/liste/liste-produit");
+        mv.addObject("liste", conseilRepo.getFiltreConseil(LocalDate.now().getMonthValue(), LocalDate.now().getYear()));
+        return mv;
+    }
+
 }

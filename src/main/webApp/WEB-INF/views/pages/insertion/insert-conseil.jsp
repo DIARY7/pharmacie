@@ -2,13 +2,13 @@
 <%@ page import="java.util.List" %>
 <%@ page import="com.gestionprojet.pharmacie.entity.produit.Produit" %>
 <% 
-  List<Produit> listeProduit = (List<Produit>) request.getAttribute("listeProduit");
+  List<Produit> listeProduit = (List<Produit>) request.getAttribute("liste_produit");
 %>
 <div class="col-md-8">
     <div class="card mb-4">
-      <h5 class="card-header">Insertion Fabrication</h5>
+      <h5 class="card-header">Insertion Conseil</h5>
       <div class="card-body">
-        <form action="/fabrication/new" method="POST">
+        <form action="/produit_conseil/new" method="POST">
             <div class="mb-3">
               <label for=""class="form-label" >Produit : </label>
               <select class="form-select" name="id_produit">
@@ -18,20 +18,22 @@
               </select>
             </div>
             <div class="mb-3">
-                <label for="age_min" class="form-label">Date Fabrication </label>
+                <label for="age_min" class="form-label">Mois </label>
                 <input
-                  type="date"
+                  type="number"
                   class="form-control"
-                  name="date_fabrication"
+                  name="mois"
+                  value="14"
                 />
               </div>
 
               <div class="mb-3">
-                <label for="age_min" class="form-label">Date Peremption </label>
+                <label for="age_min" class="form-label">Annee </label>
                 <input
-                  type="date"
+                  type="number"
                   class="form-control"
-                  name="date_peremption"
+                  name="annee"
+                  value="2025"
                 />
               </div>
               <button type="submit" class="btn btn-primary">Valider</button>

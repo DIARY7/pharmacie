@@ -128,6 +128,32 @@
             </a>
           </li>
         </ul>
+
+        <li class="menu-header small text-uppercase">
+          <span class="menu-header-text">Conseil</span>
+        </li>
+  
+        <li class="menu-item">
+          <a href="javascript:void(0);" class="menu-link menu-toggle">
+            <i class="menu-icon tf-icons bx bx-collection"></i>
+            <div data-i18n="Authentications">Conseil</div>
+          </a>
+          <ul class="menu-sub">
+            <li class="menu-item">
+              <a href="/produit_conseil" class="menu-link">
+                <div data-i18n="Basic">Liste</div>
+              </a>
+            </li>
+            <li class="menu-item">
+              <a href="/produit_conseil/form" class="menu-link">
+                <div data-i18n="Basic">insertion</div>
+              </a>
+            </li>
+          </ul>
+
+
+
+
       </ul>
 
       <!-- <li class="menu-item">
