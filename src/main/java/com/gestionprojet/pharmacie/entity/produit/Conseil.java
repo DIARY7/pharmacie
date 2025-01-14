@@ -23,4 +23,9 @@ public class Conseil {
 
     public Conseil() {
     }
+    public Conseil(int mois, int annee, Produit produit) {
+        this.mois = mois;
+        this.annee = annee;
+        this.produit = produit;
+    }
 }
