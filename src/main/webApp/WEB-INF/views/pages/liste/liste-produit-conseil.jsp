@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html;charset=UTF-8" %>
 <%@ page import="java.util.List" %>
 <%@ page import="com.gestionprojet.pharmacie.entity.produit.Produit" %>
-<%@ page import="com.gestionprojet.pharmacie.entity.maladie.Maladie" %>
 <%@ page import="com.gestionprojet.pharmacie.entity.produit.CategorieAge" %>
 <%  
     List<Produit> listeProduits = (List) request.getAttribute("liste");
@@ -13,12 +12,12 @@
       <form action="/produit_conseil/filtre" method="get">
         <div class="mb-2">
           <label for="mois-label">Mois</label>
-          <input type="number" name="mois" id="mois-label">
+          <input class="form-select" type="number"   name="mois" id="mois-label">
         </div>
         <div class="mb-2"></div>
         <div class="mb-2">
           <label for="form-label">Annee</label>
-          <input type="number" name="annee" id="annee-label">
+          <input type="number" class="form-select" name="annee" id="annee-label">
         </div>
         <div class="mb3" style="margin-bottom:20px;">
           <button class="btn btn-primary">Search</button>

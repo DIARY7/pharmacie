@@ -1,5 +1,6 @@
 package com.gestionprojet.pharmacie.controller.produit;
 
+import com.gestionprojet.pharmacie.entity.produit.Conseil;
 import com.gestionprojet.pharmacie.entity.produit.Produit;
 import com.gestionprojet.pharmacie.entity.produit.TypeProduit;
 import com.gestionprojet.pharmacie.repository.maladie.MaladieRepo;
@@ -161,7 +162,7 @@ public class ProduitController {
     @GetMapping("/produit_conseil")
     public ModelAndView getAllProduitConseil(){
         ModelAndView mv= new ModelAndView("template");
-        mv.addObject("page", "pages/liste/liste-produit");
+        mv.addObject("page", "pages/liste/liste-produit-conseil");
         mv.addObject("liste", conseilRepo.getFiltreConseil(LocalDate.now().getMonthValue(), LocalDate.now().getYear()));
         return mv;
     }

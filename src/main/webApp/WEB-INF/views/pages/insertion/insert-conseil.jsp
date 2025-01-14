@@ -23,7 +23,8 @@
                   type="number"
                   class="form-control"
                   name="mois"
-                  value="14"
+                  value="01"
+                  max="12"
                 />
               </div>
 
@@ -34,6 +35,7 @@
                   class="form-control"
                   name="annee"
                   value="2025"
+                  
                 />
               </div>
               <button type="submit" class="btn btn-primary">Valider</button>
