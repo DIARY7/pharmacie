@@ -38,6 +38,9 @@ public class ProduitController {
     @Autowired
     MaladieRepo maladieRepo;
 
+    @Autowired
+    ConseilRepo conseilRepo;
+
     @GetMapping("/produit")
     public ModelAndView getAllProduit(){
         ModelAndView mv= new ModelAndView("template");
@@ -121,4 +124,28 @@ public class ProduitController {
     }
 
     /*-------------------------------------------------*/
+
+    @PostMapping("/produit_conseil/new")
+    public String saveConseil(@RequestParam int id_produit  , @RequestParam int mois,@RequestParam int annee){
+        try {
+            Conseil conseil = new Conseil(mois,annee,prodRepo.findById(id_produit).orElseThrow(()-> new Exception("Produit introuvable") )) ;
+            conseilRepo.save(conseil);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "redirect:/produit_conseil/form?message="+e.getMessage();
+        }
+        return "redirect:/produit_conseil/form?message=Insertion%20reussi";
+    }
+
+    
+    @GetMapping("/produit_conseil/form")
+    public ModelAndView toFormProduitConseil(@RequestParam(required=false) String message){
+        ModelAndView mv = new ModelAndView("template");
+        mv.addObject("page","pages/insertion/insert-conseil");
+        mv.addObject(  , );
+        if (message!=null){
+            mv.addObject("message",message);
+        }
+        return mv;
+    }  
 }

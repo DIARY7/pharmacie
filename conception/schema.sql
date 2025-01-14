@@ -91,6 +91,14 @@ CREATE TABLE vente(
     FOREIGN KEY(id_client) REFERENCES client(id)
 );
 
+CREATE TABLE conseil(
+    id SERIAL PRIMARY KEY,
+    id_produit INTEGER,
+    mois int ,
+    annee int,
+    FOREIGN KEY(id_produit) REFERENCES produit(id)
+);
+
 /* Manao Fifo raha misy sortie */
 
 /* Vu pour le Stock actuel */
