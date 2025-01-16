@@ -86,4 +86,22 @@ public class VenteController {
         mv.addObject("listeCatAge", catAgeRepo.findAll() );
         return mv;
     }
+
+    
+    @GetMapping("/client")
+    public ModelAndView getAllClient(){
+        ModelAndView mv= new ModelAndView("template");
+        mv.addObject("page", "pages/vente/liste-client-vente");
+        mv.addObject("liste", venteRepo.findAll());
+        return mv;
+    }
+    
+    @GetMapping("/client/filtre")
+    public ModelAndView getAllClientFiltre(@RequestParam LocalDate date){
+        ModelAndView mv= new ModelAndView("template");
+        mv.addObject("page", "pages/vente/liste-client-vente");
+        mv.addObject("liste", venteRepo.getVenteAndroany(date));
+        return mv;
+    }
+    
 }
