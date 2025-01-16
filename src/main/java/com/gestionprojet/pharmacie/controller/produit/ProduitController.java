@@ -160,7 +160,13 @@ public class ProduitController {
     public ModelAndView filtreProduitConseil(@RequestParam int mois,int annee) {
         ModelAndView mv = new ModelAndView("template");
         mv.addObject("page", "pages/liste/liste-produit-conseil");
-        mv.addObject("liste", conseilRepo.getFiltreConseil(mois, annee));
+        if (mois==0){
+            mv.addObject("liste", conseilRepo.getFiltreConseilannee(annee));
+        }
+        else{
+            mv.addObject("liste", conseilRepo.getFiltreConseil(mois, annee));
+        }
+       
         return mv;
     }
 

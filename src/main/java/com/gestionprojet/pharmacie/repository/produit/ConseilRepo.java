@@ -24,4 +24,9 @@ List<Produit> getFiltreConseil(@Param("mois") int mois, @Param("annee") int anne
        " AND c.produit.id= :produit")
 List<Produit> checkInConseil(@Param("mois") int mois, @Param("annee") int annee,@Param("produit") int produit);
 
+@Query("SELECT p FROM Produit p " +
+"JOIN Conseil c ON p.id = c.produit.id " +
+"WHERE c.annee = :annee")
+List<Produit> getFiltreConseilannee( @Param("annee") int annee);
+
 }

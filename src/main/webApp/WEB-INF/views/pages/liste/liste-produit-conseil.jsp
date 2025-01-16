@@ -13,6 +13,7 @@
         <div class="mb-2">
           <label for="mois-label">Mois</label>
           <select class="form-select" name="mois" id="">
+            <option value="0">all</option>
             <option value="1">Janvier</option>
             <option value="2">Fevrier</option>
             <option value="3">Mars</option>
