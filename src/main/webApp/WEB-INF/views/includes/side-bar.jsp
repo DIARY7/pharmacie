@@ -136,6 +136,7 @@
               <div data-i18n="Basic">Client</div>
             </a>
           </li>
+        </ul>
         
         <li class="menu-header small text-uppercase">
           <span class="menu-header-text">Conseil</span>
