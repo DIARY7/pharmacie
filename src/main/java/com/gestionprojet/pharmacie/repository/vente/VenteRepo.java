@@ -2,6 +2,7 @@ package com.gestionprojet.pharmacie.repository.vente;
 
 import com.gestionprojet.pharmacie.entity.vente.Vente;
 
+import java.sql.Date;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -17,4 +18,8 @@ public interface VenteRepo extends JpaRepository<Vente, Integer> {
        "JOIN Produit p ON p.id = f.produit.id " +
        "WHERE p.categorieProduit.id = :idCategorieProduit AND p.categorieAge.id = :idCategorieAge")
     List<Vente> getFiltreVente(@Param("idCategorieProduit") int idCategorieProduit, @Param("idCategorieAge") int idCategorieAge);
+
+    @Query("SELECT v FROM Vente v " +
+       "WHERE v.daty = :date")
+    List<Vente> getVenteAndroany(@Param("date") Date date);
 }
