@@ -101,6 +101,7 @@ public class VenteController {
         ModelAndView mv= new ModelAndView("template");
         mv.addObject("page", "pages/vente/liste-client-vente");
         mv.addObject("liste", venteRepo.getVenteAndroany(date));
+        mv.addObject("daty", date);
         return mv;
     }
     
