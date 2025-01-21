@@ -10,7 +10,7 @@ import jakarta.persistence.Table;
 import lombok.Data;
 
 @Entity
-@Table(name = "commisssion")
+@Table(name = "commission")
 @Data
 public class Commission {
     @Id

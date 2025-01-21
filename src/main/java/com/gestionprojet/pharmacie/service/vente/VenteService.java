@@ -7,8 +7,8 @@ import com.gestionprojet.pharmacie.entity.produit.Fabrication;
 @Service
 public class VenteService {
 
-    public double calculeCommission(Fabrication fabrication){
-        double commission = (fabrication.getPrix()*5)/100;
+    public double calculeCommission(Fabrication fabrication,double nombre){
+        double commission = ((fabrication.getPrix() *nombre) *5)/100;
         return commission;
     }    
 }

@@ -128,6 +128,12 @@
               <div data-i18n="Basic">insertion</div>
             </a>
           </li>
+
+          <li class="menu-item">
+            <a href="/vendeur_commission" class="menu-link">
+              <div data-i18n="Basic">Vendeur-commission</div>
+            </a>
+          </li>
         </ul>
 
         <ul class="menu-sub">

@@ -10,7 +10,7 @@
     LocalDate date_apres =(LocalDate)request.getAttribute("date_apres");
 %>
 <div class="container-xxl flex-grow-1 container-p-y">
-    <h4 class="fw-bold py-3 mb-4"> Liste Clients</h4>
+    <h4 class="fw-bold py-3 mb-4"> Liste Commission vendeur </h4>
     <div class="container row" >
       <form action="/vendeur_commission/filtre" method="get">
         <div class="mb-3">
@@ -43,9 +43,8 @@
             <% 
                 for(CommissionDto comDto: listeCommission){ %>
                     <tr>
-                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong><%= vente.getClient().getId() %></strong></td>
-                        <td> <%=comDto.getCommission().getVedeur().getId() %> </td>
-                        <td><%= comDto.getCommission().getVedeur().getNom() %></td>
+                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong><%=comDto.getId() %></strong></td>
+                        <td><%= comDto.getNom() %></td>
                         <td><%= comDto.getTotal() %></td>
                     </tr>
             <%    }

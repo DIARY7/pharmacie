@@ -14,17 +14,15 @@ import org.springframework.stereotype.Repository;
 @Repository
 
 public interface CommissionRepo extends JpaRepository<Commission, Integer> {
-   @Query("SELECT new com.gestionprojet.pharmacie.dto.CommissionDto(c, SUM(c.prixCommission)) " +
+   @Query("SELECT new com.gestionprojet.pharmacie.dto.CommissionDto(c.vendeur.id,c.vendeur.nom, SUM(c.prixCommission)) " +
        "FROM Commission c " +
-       "JOIN Vente v ON v.id = c.vente.id " +
-       "WHERE v.daty >= :debut AND v.daty <= :fin " +
-       "GROUP BY c.vendeur.id")
+       "WHERE c.vente.daty >= :debut AND c.vente.daty <= :fin " +
+       "GROUP BY c.vendeur.id,c.vendeur.nom")
 List<CommissionDto> getFiltreCommission(@Param("debut") LocalDate debut, @Param("fin") LocalDate fin);
 
-@Query("SELECT new com.gestionprojet.pharmacie.dto.CommissionDto(c, SUM(c.prixCommission)) " +
-"FROM Commission c " +
-"JOIN Vente v ON v.id = c.vente.id " +
-"GROUP BY c.vendeur.id")
+@Query("SELECT new com.gestionprojet.pharmacie.dto.CommissionDto(c.vendeur.id,c.vendeur.nom, SUM(c.prixCommission)) " +
+       "FROM Commission c " +
+       "GROUP BY c.vendeur.id,c.vendeur.nom")
 List<CommissionDto> getCommission();
 
 }

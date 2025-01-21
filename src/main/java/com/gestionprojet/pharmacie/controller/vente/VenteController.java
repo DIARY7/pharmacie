@@ -68,6 +68,7 @@ public class VenteController {
         /* Mbola tsy misy resaka stock */
         mv.addObject("listeFabrication", fabRepo.findAll() );
         mv.addObject("listeClient",clientRepo.findAll());
+        mv.addObject("listeVendeur",vendeurRepo.findAll());
         if (message!=null){
             mv.addObject("message",message);
         }
@@ -87,7 +88,7 @@ public class VenteController {
             vente = venteRepo.save(vente);
             Commission commission = new Commission();
             commission.setVente(vente);
-            commission.setPrixCommission(venteService.calculeCommission(fab));
+            commission.setPrixCommission(venteService.calculeCommission(fab,nombre));
             commission.setVendeur(vendeurRepo.findById(id_vendeur).orElseThrow(()-> new Exception("Vendeur innexistant")));
             commissionRepo.save(commission);
 
