@@ -63,20 +63,20 @@ INSERT INTO client(nom) VALUES('Jean');
 INSERT INTO client(nom) VALUES('Jack');
 INSERT INTO client(nom) VALUES('Goldman');
 
-INSERT INTO fabrication (id_produit , date_fabrication , date_peremption ) VALUES (1,'2024-01-01','2025-01-01');
-INSERT INTO fabrication (id_produit , date_fabrication , date_peremption ) VALUES (2,'2024-01-01','2025-01-01');
-INSERT INTO fabrication (id_produit , date_fabrication , date_peremption ) VALUES (3,'2024-01-01','2025-01-01');
-INSERT INTO fabrication (id_produit , date_fabrication , date_peremption ) VALUES (4,'2024-01-01','2025-01-01');
-INSERT INTO fabrication (id_produit , date_fabrication , date_peremption ) VALUES (5,'2024-01-01','2025-01-01');
-INSERT INTO fabrication (id_produit , date_fabrication , date_peremption ) VALUES (6,'2024-01-01','2025-01-01');
-INSERT INTO fabrication (id_produit , date_fabrication , date_peremption ) VALUES (7,'2024-01-01','2025-01-01');
-INSERT INTO fabrication (id_produit , date_fabrication , date_peremption ) VALUES (8,'2024-01-01','2025-01-01');
-INSERT INTO fabrication (id_produit , date_fabrication , date_peremption ) VALUES (9,'2024-01-01','2025-01-01');
-INSERT INTO fabrication (id_produit , date_fabrication , date_peremption ) VALUES (10,'2024-01-01','2025-01-01');
-INSERT INTO fabrication (id_produit , date_fabrication , date_peremption ) VALUES (11,'2024-01-01','2025-01-01');
-INSERT INTO fabrication (id_produit , date_fabrication , date_peremption ) VALUES (12,'2024-01-01','2025-01-01');
-INSERT INTO fabrication (id_produit , date_fabrication , date_peremption ) VALUES (13,'2024-01-01','2025-01-01');
-INSERT INTO fabrication (id_produit , date_fabrication , date_peremption ) VALUES (14,'2024-01-01','2025-01-01');
+INSERT INTO fabrication (id_produit , date_fabrication , date_peremption , prix ) VALUES (1,'2024-01-01','2025-01-01',12000);
+INSERT INTO fabrication (id_produit , date_fabrication , date_peremption , prix ) VALUES (2,'2024-01-01','2025-01-01',1000);
+INSERT INTO fabrication (id_produit , date_fabrication , date_peremption , prix ) VALUES (3,'2024-01-01','2025-01-01',25000);
+INSERT INTO fabrication (id_produit , date_fabrication , date_peremption , prix ) VALUES (4,'2024-01-01','2025-01-01',20000);
+INSERT INTO fabrication (id_produit , date_fabrication , date_peremption , prix ) VALUES (5,'2024-01-01','2025-01-01',10000);
+INSERT INTO fabrication (id_produit , date_fabrication , date_peremption , prix ) VALUES (6,'2024-01-01','2025-01-01',50000);
+INSERT INTO fabrication (id_produit , date_fabrication , date_peremption , prix ) VALUES (7,'2024-01-01','2025-01-01',5000);
+INSERT INTO fabrication (id_produit , date_fabrication , date_peremption , prix ) VALUES (8,'2024-01-01','2025-01-01',200000);
+INSERT INTO fabrication (id_produit , date_fabrication , date_peremption , prix ) VALUES (9,'2024-01-01','2025-01-01',60000);
+INSERT INTO fabrication (id_produit , date_fabrication , date_peremption , prix ) VALUES (10,'2024-01-01','2025-01-01',1000);
+INSERT INTO fabrication (id_produit , date_fabrication , date_peremption , prix ) VALUES (11,'2024-01-01','2025-01-01',3000);
+INSERT INTO fabrication (id_produit , date_fabrication , date_peremption , prix ) VALUES (12,'2024-01-01','2025-01-01',6500);
+INSERT INTO fabrication (id_produit , date_fabrication , date_peremption , prix ) VALUES (13,'2024-01-01','2025-01-01',55500);
+INSERT INTO fabrication (id_produit , date_fabrication , date_peremption , prix ) VALUES (14,'2024-01-01','2025-01-01'.25000);
 
 --insertion des donnees dans la table con
 INSERT INTO conseil (mois ,annee , id_produit ) VALUES
