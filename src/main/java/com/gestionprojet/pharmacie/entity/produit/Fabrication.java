@@ -20,6 +20,7 @@ public class Fabrication {
     @ManyToOne
     @JoinColumn(name = "id_produit")
     Produit produit;
+    double prix;
 
     LocalDate dateFabrication;
     LocalDate datePeremption;
