@@ -4,6 +4,7 @@
 <%@ page import="com.gestionprojet.pharmacie.entity.produit.CategorieAge" %>
 <%  
     List<Produit> listeProduits = (List) request.getAttribute("liste");
+    Integer annee =(Integer)request.getAttribute("annee");
      
 %>
 <div class="container-xxl flex-grow-1 container-p-y">
@@ -32,7 +33,7 @@
         <div class="mb-2"></div>
         <div class="mb-2">
           <label for="form-label">Annee</label>
-          <input type="number" class="form-select" value="2025" name="annee" id="annee-label">
+          <input type="number" class="form-control" value="<% if(annee!=null) out.print(annee); else out.print(2025); %>" name="annee" id="annee-label">
         </div>
         <div class="mb3" style="margin-bottom:20px;">
           <button class="btn btn-primary">Search</button>

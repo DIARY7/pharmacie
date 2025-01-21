@@ -26,8 +26,7 @@
           <select class="form-select" name="id_categorie_age" id="">
             <% for( CategorieAge catAge : listeCatAge){ %>
               <option value="<%= catAge.getId() %>"><%= catAge.getVal() %></option>
-            <% } %>
-            <option value=""></option>            
+            <% } %>          
           </select>
         </div>
         <div class="mb3" style="margin-bottom:20px;">

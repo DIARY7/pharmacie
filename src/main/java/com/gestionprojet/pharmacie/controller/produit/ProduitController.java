@@ -162,9 +162,11 @@ public class ProduitController {
         mv.addObject("page", "pages/liste/liste-produit-conseil");
         if (mois==0){
             mv.addObject("liste", conseilRepo.getFiltreConseilannee(annee));
+            mv.addObject("annee", annee);
         }
         else{
             mv.addObject("liste", conseilRepo.getFiltreConseil(mois, annee));
+            mv.addObject("annee", annee);
         }
        
         return mv;
