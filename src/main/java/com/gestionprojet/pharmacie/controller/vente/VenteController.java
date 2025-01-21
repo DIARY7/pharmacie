@@ -136,10 +136,10 @@ public class VenteController {
     }
     
     @GetMapping("/vendeur_commission/filtre")
-    public ModelAndView getAllCommissionPeriod()(@RequestParam LocalDate date_avant,@RequestParam LocalDate date_apres){
+    public ModelAndView getAllCommissionPeriod(@RequestParam LocalDate date_avant,@RequestParam LocalDate date_apres){
         ModelAndView mv= new ModelAndView("template");
         mv.addObject("page", "pages/vente/liste-vendeur-commission");
-        mv.addObject("liste", commissionRepo.getCommissionFiltre());
+        mv.addObject("liste", commissionRepo.getFiltreCommission(date_avant,date_apres));
         mv.addObject("date_avant", date_avant);
         mv.addObject("date_apres",date_apres);
         return mv;

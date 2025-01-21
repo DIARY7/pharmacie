@@ -20,6 +20,7 @@ public interface CommissionRepo extends JpaRepository<Commission, Integer> {
        "WHERE v.daty >= :debut AND v.daty <= :fin " +
        "GROUP BY c.vendeur.id")
 List<CommissionDto> getFiltreCommission(@Param("debut") LocalDate debut, @Param("fin") LocalDate fin);
+
 @Query("SELECT new com.gestionprojet.pharmacie.dto.CommissionDto(c, SUM(c.prixCommission)) " +
 "FROM Commission c " +
 "JOIN Vente v ON v.id = c.vente.id " +

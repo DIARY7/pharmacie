@@ -100,11 +100,18 @@ CREATE TABLE conseil(
     FOREIGN KEY(id_produit) REFERENCES produit(id)
 );
 
+CREATE TABLE vendeur(
+    id SERIAL PRIMARY KEY,
+    nom VARCHAR
+);
+
 CREATE TABLE commission(
     id SERIAL PRIMARY KEY,
     id_vendeur INTEGER,
     id_vente INTEGER,
-    prix_commission DECIMAL
+    prix_commission DECIMAL,
+    FOREIGN KEY(id_vendeur) REFERENCES vendeur(id),
+    FOREIGN KEY(id_vente) REFERENCES vente(id)
 );
 
 /* Manao Fifo raha misy sortie */

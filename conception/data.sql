@@ -76,7 +76,7 @@ INSERT INTO fabrication (id_produit , date_fabrication , date_peremption , prix 
 INSERT INTO fabrication (id_produit , date_fabrication , date_peremption , prix ) VALUES (11,'2024-01-01','2025-01-01',3000);
 INSERT INTO fabrication (id_produit , date_fabrication , date_peremption , prix ) VALUES (12,'2024-01-01','2025-01-01',6500);
 INSERT INTO fabrication (id_produit , date_fabrication , date_peremption , prix ) VALUES (13,'2024-01-01','2025-01-01',55500);
-INSERT INTO fabrication (id_produit , date_fabrication , date_peremption , prix ) VALUES (14,'2024-01-01','2025-01-01'.25000);
+INSERT INTO fabrication (id_produit , date_fabrication , date_peremption , prix ) VALUES (14,'2024-01-01','2025-01-01',25000);
 
 --insertion des donnees dans la table con
 INSERT INTO conseil (mois ,annee , id_produit ) VALUES
