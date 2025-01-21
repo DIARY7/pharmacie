@@ -1,9 +1,5 @@
 package com.gestionprojet.pharmacie.entity.vente;
 
-import java.time.LocalDate;
-
-import com.gestionprojet.pharmacie.entity.produit.Fabrication;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
