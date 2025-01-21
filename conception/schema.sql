@@ -45,6 +45,7 @@ CREATE TABLE fabrication(
     id_produit INTEGER,
     date_fabrication DATE,
     date_peremption DATE,
+    prix DECIMAL,
     FOREIGN KEY(id_produit) REFERENCES produit(id)
 );
 
@@ -97,6 +98,13 @@ CREATE TABLE conseil(
     mois int ,
     annee int,
     FOREIGN KEY(id_produit) REFERENCES produit(id)
+);
+
+CREATE TABLE commission(
+    id SERIAL PRIMARY KEY,
+    id_vendeur INTEGER,
+    id_vente INTEGER,
+    prix_commission DECIMAL
 );
 
 /* Manao Fifo raha misy sortie */
