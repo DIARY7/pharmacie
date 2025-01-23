@@ -21,8 +21,8 @@ public class CommissionDto {
     public static double getTotalCommission(List<CommissionDto> liste)
     {
         double total =0;
-        for (int i=0; i<liste.size()-1;i++) {
-            total=total+liste.get(i).total;
+        for (int i=0; i < liste.size() ;i++) {
+            total+=liste.get(i).getTotal();
         }
         return total;
     }

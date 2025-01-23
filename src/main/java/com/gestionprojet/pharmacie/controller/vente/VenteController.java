@@ -20,6 +20,7 @@ import com.gestionprojet.pharmacie.repository.produit.CategorieProduitRepo;
 import com.gestionprojet.pharmacie.repository.produit.FabricationRepo;
 import com.gestionprojet.pharmacie.repository.vente.ClientRepo;
 import com.gestionprojet.pharmacie.repository.vente.CommissionRepo;
+import com.gestionprojet.pharmacie.repository.vente.SexeRepo;
 import com.gestionprojet.pharmacie.repository.vente.VendeurRepo;
 import com.gestionprojet.pharmacie.repository.vente.VenteRepo;
 import com.gestionprojet.pharmacie.service.vente.VenteService;
@@ -49,6 +50,9 @@ public class VenteController {
 
     @Autowired
     VenteService venteService;
+
+    @Autowired
+    SexeRepo sexeRepo;
 
     @GetMapping("/vente")
     public ModelAndView getAllVente(){
@@ -133,14 +137,21 @@ public class VenteController {
         ModelAndView mv= new ModelAndView("template");
         mv.addObject("page", "pages/vente/liste-vendeur-commission");
         mv.addObject("liste", commissionRepo.getCommission());
+        mv.addObject("listeSexe", sexeRepo.findAll());
         return mv;
     }
     
     @GetMapping("/vendeur_commission/filtre")
-    public ModelAndView getAllCommissionPeriod(@RequestParam LocalDate date_avant,@RequestParam LocalDate date_apres){
+    public ModelAndView getAllCommissionPeriod(@RequestParam LocalDate date_avant,@RequestParam LocalDate date_apres , @RequestParam int id_sexe){
         ModelAndView mv= new ModelAndView("template");
         mv.addObject("page", "pages/vente/liste-vendeur-commission");
-        mv.addObject("liste", commissionRepo.getFiltreCommission(date_avant,date_apres));
+        if (id_sexe==-1) {
+            mv.addObject("liste", commissionRepo.getFiltreCommission(date_avant,date_apres));
+        }
+        else{
+            mv.addObject("liste", commissionRepo.getFiltreCommissionSexe(date_avant, date_apres, id_sexe));
+        }
+        mv.addObject("listeSexe", sexeRepo.findAll());
         mv.addObject("date_avant", date_avant);
         mv.addObject("date_apres",date_apres);
         return mv;

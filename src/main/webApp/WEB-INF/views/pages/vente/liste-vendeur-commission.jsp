@@ -3,11 +3,13 @@
 <%@ page import="java.time.LocalDate" %>
 <%@ page import="com.gestionprojet.pharmacie.entity.vente.Vente" %>
 <%@ page import="com.gestionprojet.pharmacie.dto.CommissionDto" %>
+<%@ page import="com.gestionprojet.pharmacie.entity.vente.Sexe" %>
 
 <%  
     List<CommissionDto> listeCommission = (List) request.getAttribute("liste");
     LocalDate date_avant =(LocalDate)request.getAttribute("date_avant");    
     LocalDate date_apres =(LocalDate)request.getAttribute("date_apres");
+    List<Sexe> listeSexe = (List) request.getAttribute("listeSexe");
 %>
 <div class="container-xxl flex-grow-1 container-p-y">
     <h4 class="fw-bold py-3 mb-4"> Liste Commission vendeur </h4>
@@ -21,6 +23,16 @@
         <div class="mb-3">
             <label for="form-label">Date Max : </label>
             <input type="date" class="form-control" name="date_apres" id="" value="<% if(date_apres!=null) out.print(date_apres); else out.print(LocalDate.now()); %>">
+          </div>
+
+          <div class="mb-3">
+            <label for="form-label">Sexe vendeur</label>
+            <select class="form-select" name="id_sexe" id="">
+              <option value="-1">All</option>
+              <% for( Sexe sexy : listeSexe ){ %>
+                <option value="<%= sexy.getId() %>"><%= sexy.getValeur() %></option>
+              <% } %>
+            </select>
           </div>
 
         <div class="mb3" style="margin-bottom:20px;">
@@ -49,6 +61,11 @@
                     </tr>
             <%    }
             %>
+            </tr>
+            <tr>
+              <th style="text-align: center;font-size: 22px;" >Total</th>
+              <th colspan="3" style="text-align: center;font-size: 22px;" > <%= CommissionDto.getTotalCommission(listeCommission) %></th>
+            </tr>
             </tbody>
         </table>
       </div>

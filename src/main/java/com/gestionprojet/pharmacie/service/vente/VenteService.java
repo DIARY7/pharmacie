@@ -8,7 +8,11 @@ import com.gestionprojet.pharmacie.entity.produit.Fabrication;
 public class VenteService {
 
     public double calculeCommission(Fabrication fabrication,double nombre){
-        double commission = ((fabrication.getPrix() *nombre) *5)/100;
+        double vidiny = fabrication.getPrix() *nombre;
+        double commission = 0;
+        if (vidiny >= 200000) {
+            commission = ((vidiny) *5)/100;
+        } 
         return commission;
     }    
 }
