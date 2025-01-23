@@ -138,6 +138,8 @@ public class VenteController {
         mv.addObject("page", "pages/vente/liste-vendeur-commission");
         mv.addObject("liste", commissionRepo.getCommission());
         mv.addObject("listeSexe", sexeRepo.findAll());
+        mv.addObject("listeHomme", commissionRepo.getFiltreCommissionSexeAll(1));
+        mv.addObject("listeFemme", commissionRepo.getFiltreCommissionSexeAll( 0));
         return mv;
     }
     
@@ -146,7 +148,8 @@ public class VenteController {
         ModelAndView mv= new ModelAndView("template");
         mv.addObject("page", "pages/vente/liste-vendeur-commission");
         if (id_sexe==-1) {
-            mv.addObject("liste", commissionRepo.getFiltreCommission(date_avant,date_apres));
+            mv.addObject("listeHomme", commissionRepo.getFiltreCommissionSexe(date_avant, date_apres, 1));
+            mv.addObject("listeFemme", commissionRepo.getFiltreCommissionSexe(date_avant, date_apres, 0));
         }
         else{
             mv.addObject("liste", commissionRepo.getFiltreCommissionSexe(date_avant, date_apres, id_sexe));

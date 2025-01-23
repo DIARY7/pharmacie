@@ -32,4 +32,10 @@ List<CommissionDto> getCommission();
        " GROUP BY c.vendeur.id,c.vendeur.nom")
 List<CommissionDto> getFiltreCommissionSexe(@Param("debut") LocalDate debut, @Param("fin") LocalDate fin, @Param("sexe") int sexe);
 
+@Query("SELECT new com.gestionprojet.pharmacie.dto.CommissionDto(c.vendeur.id,c.vendeur.nom, SUM(c.prixCommission)) " +
+       "FROM Commission c " +
+       "WHERE c.vendeur.sexe.id= :sexe " +
+       " GROUP BY c.vendeur.id,c.vendeur.nom")
+List<CommissionDto> getFiltreCommissionSexeAll( @Param("sexe") int sexe);
+
 }
