@@ -100,10 +100,18 @@ CREATE TABLE conseil(
     FOREIGN KEY(id_produit) REFERENCES produit(id)
 );
 
+CREATE TABLE sexe(
+    id SERIAL PRIMARY KEY,
+    valeur VARCHAR(10)  
+);
+
 CREATE TABLE vendeur(
     id SERIAL PRIMARY KEY,
-    nom VARCHAR
+    nom VARCHAR,
+    id_sexe INTEGER,
+    FOREIGN KEY(id_sexe) REFERENCES sexe(id);
 );
+
 
 CREATE TABLE commission(
     id SERIAL PRIMARY KEY,

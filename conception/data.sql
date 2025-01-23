@@ -63,9 +63,13 @@ INSERT INTO client(nom) VALUES('Jean');
 INSERT INTO client(nom) VALUES('Jack');
 INSERT INTO client(nom) VALUES('Goldman');
 
-INSERT INTO vendeur(nom) VALUES('Alice');
-INSERT INTO vendeur(nom) VALUES('Bob');
-INSERT INTO vendeur(nom) VALUES('Marley');
+INSERT INTO sexe(id,valeur) VALUES(0,'Femme');
+INSERT INTO sexe(id,valeur) VALUES(1,'Homme');
+
+INSERT INTO vendeur(nom,id_sexe) VALUES('Alice',0);
+INSERT INTO vendeur(nom,id_sexe) VALUES('Bob',1);
+INSERT INTO vendeur(nom,id_sexe) VALUES('Marley',1);
+INSERT INTO vendeur(nom,id_sexe) VALUES('Queen',0);
 
 INSERT INTO fabrication (id_produit , date_fabrication , date_peremption , prix ) VALUES (1,'2024-01-01','2025-01-01',12000);
 INSERT INTO fabrication (id_produit , date_fabrication , date_peremption , prix ) VALUES (2,'2024-01-01','2025-01-01',1000);
@@ -82,8 +86,8 @@ INSERT INTO fabrication (id_produit , date_fabrication , date_peremption , prix 
 INSERT INTO fabrication (id_produit , date_fabrication , date_peremption , prix ) VALUES (13,'2024-01-01','2025-01-01',55500);
 INSERT INTO fabrication (id_produit , date_fabrication , date_peremption , prix ) VALUES (14,'2024-01-01','2025-01-01',25000);
 
-INSERT INTO fabrication (id_produit , date_fabrication , date_peremption , prix ) VALUES (15,'2024-01-01','2026-01-01',5000);
-INSERT INTO fabrication (id_produit , date_fabrication , date_peremption , prix ) VALUES (16,'2024-01-01','2026-01-01',20000);
+-- INSERT INTO fabrication (id_produit , date_fabrication , date_peremption , prix ) VALUES (15,'2024-01-01','2026-01-01',5000);
+-- INSERT INTO fabrication (id_produit , date_fabrication , date_peremption , prix ) VALUES (16,'2024-01-01','2026-01-01',20000);
 
 
 --insertion des donnees dans la table con
