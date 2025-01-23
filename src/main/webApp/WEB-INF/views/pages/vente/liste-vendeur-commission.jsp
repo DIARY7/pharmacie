@@ -10,6 +10,8 @@
     LocalDate date_avant =(LocalDate)request.getAttribute("date_avant");    
     LocalDate date_apres =(LocalDate)request.getAttribute("date_apres");
     List<Sexe> listeSexe = (List) request.getAttribute("listeSexe");
+    List <CommissionDto> listeHomme = (List) request.getAttribute("listeHomme");
+    List <CommissionDto> listeFemme = (List) request.getAttribute("listeFemme");
 %>
 <div class="container-xxl flex-grow-1 container-p-y">
     <h4 class="fw-bold py-3 mb-4"> Liste Commission vendeur </h4>
@@ -41,33 +43,99 @@
         </div>
       </form>
     </div>
-    <div class="card">
-      <div class="table-responsive text-nowrap">
-        <table class="table table-striped">
-          <thead>
-            <tr>
-              <th>Id Vendeur</th>
-              <th>Nom Vendeur</th>
-              <th>Commission</th>
-            </tr>
-          </thead>
-          <tbody class="table-border-bottom-0">
-            <% 
-                for(CommissionDto comDto: listeCommission){ %>
-                    <tr>
-                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong><%=comDto.getId() %></strong></td>
-                        <td><%= comDto.getNom() %></td>
-                        <td><%= comDto.getTotal() %></td>
-                    </tr>
-            <%    }
-            %>
-            </tr>
-            <tr>
-              <th style="text-align: center;font-size: 22px;" >Total</th>
-              <th colspan="3" style="text-align: center;font-size: 22px;" > <%= CommissionDto.getTotalCommission(listeCommission) %></th>
-            </tr>
-            </tbody>
-        </table>
+    <% if(listeCommission!=null){ %>
+      <div class="card">
+        <div class="table-responsive text-nowrap">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Id Vendeur</th>
+                <th>Nom Vendeur</th>
+                <th>Commission</th>
+              </tr>
+            </thead>
+            <tbody class="table-border-bottom-0">
+              <% 
+                  for(CommissionDto comDto: listeCommission){ %>
+                      <tr>
+                          <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong><%=comDto.getId() %></strong></td>
+                          <td><%= comDto.getNom() %></td>
+                          <td><%= comDto.getTotal() %></td>
+                      </tr>
+              <%    }
+              %>
+              </tr>
+              <tr>
+                <th style="text-align: center;font-size: 22px;" >Total</th>
+                <th colspan="3" style="text-align: center;font-size: 22px;" > <%= CommissionDto.getTotalCommission(listeCommission) %></th>
+              </tr>
+              </tbody>
+          </table>
+        </div>
       </div>
-    </div>
+    <% } else{ %>
+      <h4 class="fw-bold py-3 mb-4"> Commission Homme </h4>
+      <div class="card">
+        <div class="table-responsive text-nowrap">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Id Vendeur</th>
+                <th>Nom Vendeur</th>
+                <th>Commission</th>
+              </tr>
+            </thead>
+            <tbody class="table-border-bottom-0">
+              <% 
+                  for(CommissionDto comDto: listeHomme){ %>
+                      <tr>
+                          <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong><%=comDto.getId() %></strong></td>
+                          <td><%= comDto.getNom() %></td>
+                          <td><%= comDto.getTotal() %></td>
+                      </tr>
+              <%    }
+              %>
+              </tr>
+              <tr>
+                <th style="text-align: center;font-size: 22px;" >Total</th>
+                <th colspan="3" style="text-align: center;font-size: 22px;" > <%= CommissionDto.getTotalCommission(listeHomme) %></th>
+              </tr>
+              </tbody>
+          </table>
+        </div>
+      </div>
+
+      <h4 class="fw-bold py-3 mb-4"> Commission Femme </h4>
+      <div class="card">
+        <div class="table-responsive text-nowrap">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Id Vendeur</th>
+                <th>Nom Vendeur</th>
+                <th>Commission</th>
+              </tr>
+            </thead>
+            <tbody class="table-border-bottom-0">
+              <% 
+                  for(CommissionDto comDto: listeFemme){ %>
+                      <tr>
+                          <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong><%=comDto.getId() %></strong></td>
+                          <td><%= comDto.getNom() %></td>
+                          <td><%= comDto.getTotal() %></td>
+                      </tr>
+              <%    }
+              %>
+              </tr>
+              <tr>
+                <th style="text-align: center;font-size: 22px;" >Total</th>
+                <th colspan="3" style="text-align: center;font-size: 22px;" > <%= CommissionDto.getTotalCommission(listeFemme) %></th>
+              </tr>
+              </tbody>
+          </table>
+        </div>
+      </div>
+
+    <% } %>
+    
 </div>
