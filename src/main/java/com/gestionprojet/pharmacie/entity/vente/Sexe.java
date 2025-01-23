@@ -4,27 +4,18 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.Data;
 
-
 @Entity
-@Table(name = "vendeur")
+@Table(name = "sexe")
 @Data
-public class Vendeur {
+public class Sexe {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
 
-    String nom;
-
-    @ManyToOne
-    @JoinColumn(name="id_sexe",referencedColumnName = "id")
-    Sexe sexe;
-    
-
-    public Vendeur() {
+    String valeur;
+    public Sexe() {
     }
 }
