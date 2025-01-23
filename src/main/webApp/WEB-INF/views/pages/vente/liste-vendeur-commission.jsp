@@ -74,8 +74,8 @@
         </div>
       </div>
     <% } else{ %>
-      <h4 class="fw-bold py-3 mb-4"> Commission Homme </h4>
-      <div class="card">
+      <h4 class="fw-bold mb-4"> Commission Homme </h4>
+      <div class="card" style="margin-bottom: 42px ;" >
         <div class="table-responsive text-nowrap">
           <table class="table table-striped">
             <thead>
@@ -105,7 +105,7 @@
         </div>
       </div>
 
-      <h4 class="fw-bold py-3 mb-4"> Commission Femme </h4>
+      <h4 class="fw-bold mb-4"> Commission Femme </h4>
       <div class="card">
         <div class="table-responsive text-nowrap">
           <table class="table table-striped">

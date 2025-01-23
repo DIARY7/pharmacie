@@ -42,9 +42,9 @@ public class FabricationController {
     } 
 
     @PostMapping("/fabrication/new")
-    public String save(@RequestParam int id_produit,@RequestParam LocalDate date_fabrication , @RequestParam LocalDate date_peremption ){
+    public String save(@RequestParam int id_produit,@RequestParam LocalDate date_fabrication , @RequestParam LocalDate date_peremption,@RequestParam double prix ){
         try {
-            fabService.save(id_produit, date_fabrication, date_peremption);
+            fabService.save(id_produit, date_fabrication, date_peremption,prix);
         } catch (Exception e) {
             e.printStackTrace();
             return "redirect:/fabrication/form?message="+e.getMessage();

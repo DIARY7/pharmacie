@@ -18,8 +18,9 @@ public class FabricationService {
     @Autowired
     ProduitRepo prodRepo;
 
-    public void save(int id_produit,LocalDate dateFabrication,LocalDate datePeremption) throws Exception {
+    public void save(int id_produit,LocalDate dateFabrication,LocalDate datePeremption,double prix) throws Exception {
         Fabrication fabrication = new Fabrication(dateFabrication, datePeremption);
+        fabrication.setPrix(prix);
         fabrication.setProduit(prodRepo.findById(id_produit).orElseThrow(()->new Exception("Produit innexistant")));
         fabRepo.save(fabrication);
     }

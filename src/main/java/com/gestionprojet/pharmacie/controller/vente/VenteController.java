@@ -136,7 +136,7 @@ public class VenteController {
     public ModelAndView getAllCommission(){
         ModelAndView mv= new ModelAndView("template");
         mv.addObject("page", "pages/vente/liste-vendeur-commission");
-        mv.addObject("liste", commissionRepo.getCommission());
+        //mv.addObject("liste", commissionRepo.getCommission());
         mv.addObject("listeSexe", sexeRepo.findAll());
         mv.addObject("listeHomme", commissionRepo.getFiltreCommissionSexeAll(1));
         mv.addObject("listeFemme", commissionRepo.getFiltreCommissionSexeAll( 0));

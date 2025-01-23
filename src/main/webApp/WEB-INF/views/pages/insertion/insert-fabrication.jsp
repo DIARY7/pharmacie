@@ -34,6 +34,16 @@
                   name="date_peremption"
                 />
               </div>
+
+              <div class="mb-3">
+                <label for="" class="form-label">PRIX</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  name="prix"
+                />
+              </div>
+
               <button type="submit" class="btn btn-primary">Valider</button>
         </form>
       </div>  
