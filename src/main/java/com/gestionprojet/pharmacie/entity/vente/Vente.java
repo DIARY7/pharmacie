@@ -2,7 +2,7 @@ package com.gestionprojet.pharmacie.entity.vente;
 
 import java.time.LocalDate;
 
-import com.gestionprojet.pharmacie.entity.produit.Fabrication;
+import com.gestionprojet.pharmacie.entity.Livraison;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -25,8 +25,8 @@ public class Vente {
     LocalDate daty;
 
     @ManyToOne
-    @JoinColumn(name="id_fabrication",referencedColumnName = "id")
-    Fabrication fabrication;
+    @JoinColumn(name="id_livraison",referencedColumnName = "id")
+    Livraison livraison;
     
     @ManyToOne
     @JoinColumn(name="id_client",referencedColumnName = "id")

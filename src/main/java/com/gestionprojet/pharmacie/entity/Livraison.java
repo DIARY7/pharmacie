@@ -1,6 +1,8 @@
 package com.gestionprojet.pharmacie.entity;
 
 
+import java.time.LocalDate;
+
 import com.gestionprojet.pharmacie.entity.produit.Fabrication;
 
 import jakarta.persistence.Entity;
@@ -19,6 +21,8 @@ public class  Livraison{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
+
+    LocalDate daty;
 
     @ManyToOne
     @JoinColumn(name = "id_fabrication")
