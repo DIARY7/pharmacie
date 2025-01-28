@@ -8,6 +8,7 @@
   List<Client> listeClient = (List<Client>) request.getAttribute("listeClient");
   List<Vendeur> listeVendeur = (List<Vendeur>) request.getAttribute("listeVendeur");
 %>
+
 <div class="col-md-8">
     <div class="card mb-4">
       <h5 class="card-header">Insertion Vente</h5>
@@ -17,7 +18,7 @@
               <label for=""class="form-label" >Produit : </label>
               <select class="form-select" name="id_fabrication">
                 <% for(Fabrication fab: listeFabrication){ %>
-                  <option value="<%= fab.getId() %>"><%= fab.getProduit().getNom()  %> (prix :<%= fab.getPrix()  %> </option>
+                  <option value="<%= fab.getId() %>"><%= fab.getProduit().getNom()  %> </option>
                 <% } %>
               </select>
             </div>

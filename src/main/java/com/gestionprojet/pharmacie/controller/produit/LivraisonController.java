@@ -9,31 +9,35 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.gestionprojet.pharmacie.entity.produit.Produit;
+import com.gestionprojet.pharmacie.entity.Livraison;
+import com.gestionprojet.pharmacie.repository.LivraisonRepo;
+import com.gestionprojet.pharmacie.repository.produit.FabricationRepo;
 import com.gestionprojet.pharmacie.repository.produit.ProduitRepo;
 import com.gestionprojet.pharmacie.service.produit.FabricationService;
 
 @Controller
-public class FabricationController {
-
+public class LivraisonController {
     @Autowired
-    FabricationService fabService;
+    FabricationRepo fabRepo;
 
     @Autowired
     ProduitRepo prodRepo;
 
-    @GetMapping("/fabrication")
-    public ModelAndView getAllfabrication(){
+    @Autowired
+    LivraisonRepo livraisonRepo;
+
+    @GetMapping("/livraison")
+    public ModelAndView getAllLivraison(){
         ModelAndView mv= new ModelAndView("template");
-        mv.addObject("page", "pages/liste/liste-fabrication");
+        mv.addObject("page", "pages/liste/liste-livraison");
         mv.addObject("liste", fabService.getAll());
         return mv;
     }
 
-    @GetMapping("/fabrication/form")
+    @GetMapping("/livraison/form")
     public ModelAndView toForm(@RequestParam(required=false) String message){
         ModelAndView mv = new ModelAndView("template");
-        mv.addObject("page","pages/insertion/insert-fabrication");
+        mv.addObject("page","pages/insertion/insert-livraison");
         mv.addObject("listeProduit",prodRepo.findAll());
         if (message!=null){
             mv.addObject("message",message);
@@ -41,11 +45,11 @@ public class FabricationController {
         return mv;
     } 
 
-    @PostMapping("/fabrication/new")
-    public String save(@RequestParam int id_produit,@RequestParam LocalDate date_fabrication , @RequestParam LocalDate date_peremption,@RequestParam double prix ,
-    @RequestParam LocalDate date_prix){
+    @PostMapping("/livraison/new")
+    public String save(@RequestParam int id_fabrication , @RequestParam double prix_unitaire , @RequestParam LocalDate daty ){
         try {
-            fabService.save(id_produit, date_fabrication, date_peremption,prix,date_prix);
+            Livraison livraison = new Livraison(fabRepo.findById(id_fabrication).orElseThrow(()-> new Exception("Fabrication introuvable")), prix_unitaire);
+            livraison.setDaty(daty);
         } catch (Exception e) {
             e.printStackTrace();
             return "redirect:/fabrication/form?message="+e.getMessage();

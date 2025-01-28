@@ -24,9 +24,14 @@ public class  Livraison{
     @JoinColumn(name = "id_fabrication")
     Fabrication fabrication;
 
-    double prixunitaire;
+    double prixUnitaire;
 
     public Livraison() {
+    }
+
+    public Livraison(Fabrication fabrication,double prixunitaire) {
+        this.setFabrication(fabrication);
+        this.setPrixUnitaire(prixunitaire);
     }
 
 }

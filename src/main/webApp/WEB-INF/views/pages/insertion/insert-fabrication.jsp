@@ -44,6 +44,15 @@
                 />
               </div>
 
+              <div class="mb-3">
+                <label for="" class="form-label">Date prix : </label>
+                <input
+                  type="number"
+                  class="form-control"
+                  name="date_prix"
+                />
+              </div>
+
               <button type="submit" class="btn btn-primary">Valider</button>
         </form>
       </div>  

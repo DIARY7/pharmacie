@@ -62,10 +62,11 @@ CREATE TABLE curration(
     FOREIGN KEY(id_produit) REFERENCES produit(id)
 );
 
-CREATE TABLE livraison(
+CREATE TABLE livraison( /* Historique prix */
     id SERIAL PRIMARY KEY,
     id_fabrication INTEGER,
     prix_unitaire DECIMAL,
+    daty DATE,
     FOREIGN KEY(id_fabrication) REFERENCES fabrication(id)
 );
 
@@ -84,11 +85,11 @@ CREATE TABLE client(
 );
 CREATE TABLE vente(
     id SERIAL PRIMARY KEY,
-    id_fabrication INTEGER,
+    id_livraison INTEGER,
     nombre DECIMAL,
     daty DATE,
     id_client INTEGER,
-    FOREIGN KEY(id_fabrication) REFERENCES fabrication(id),
+    FOREIGN KEY(id_livraison) REFERENCES livraison(id),
     FOREIGN KEY(id_client) REFERENCES client(id)
 );
 
