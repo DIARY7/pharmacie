@@ -20,5 +20,5 @@ public interface LivraisonRepo extends JpaRepository<Livraison, Integer> {
 
     @Query("SELECT l FROM livraison l " +
        "WHERE l.daty >= :datedebut AND l.daty <= :datefin")
-    List<Livraison> getLivraisonfiltre(@Param("date") LocalDate datedebut, @Param("date") LocalDate datefin);
+    List<Livraison> getLivraisonfiltre(@Param("datedebut") LocalDate datedebut, @Param("datefin") LocalDate datefin);
 }
