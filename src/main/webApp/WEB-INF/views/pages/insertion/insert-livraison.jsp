@@ -22,7 +22,7 @@
                 <input
                   type="date"
                   class="form-control"
-                  name="date_fabrication"
+                  name="daty"
                 />
               </div>
 
@@ -31,7 +31,7 @@
                 <input
                   type="number"
                   class="form-control"
-                  name="prix"
+                  name="prix_unitaire"
                 />
               </div>
 

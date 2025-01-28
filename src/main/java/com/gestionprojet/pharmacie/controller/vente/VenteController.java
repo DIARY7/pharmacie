@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.gestionprojet.pharmacie.entity.Livraison;
 import com.gestionprojet.pharmacie.entity.produit.CategorieAge;
 import com.gestionprojet.pharmacie.entity.produit.CategorieProduit;
 import com.gestionprojet.pharmacie.entity.produit.Fabrication;
@@ -80,7 +81,6 @@ public class VenteController {
     } 
 
 
-
     @PostMapping("/vente/new")
     public String save(@RequestParam int id_fabrication , @RequestParam double nombre,@RequestParam LocalDate daty
     ,@RequestParam int id_client,@RequestParam int id_vendeur){
@@ -88,11 +88,12 @@ public class VenteController {
             Vente vente = new Vente(nombre,daty);
             Fabrication fab = fabRepo.findById(id_fabrication).orElseThrow(()-> new Exception("Fabrication innexistant"));
             vente.setClient(clientRepo.findById(id_client).orElseThrow(()-> new Exception("Client innexistant")));
-            vente.setFabrication(fab);
+            Livraison livraison = venteService.getLivraison(daty,id_fabrication);
+            vente.setLivraison(livraison);
             vente = venteRepo.save(vente);
             Commission commission = new Commission();
             commission.setVente(vente);
-            commission.setPrixCommission(venteService.calculeCommission(fab,nombre));
+            commission.setPrixCommission(venteService.calculeCommission(livraison,nombre));
             commission.setVendeur(vendeurRepo.findById(id_vendeur).orElseThrow(()-> new Exception("Vendeur innexistant")));
             commissionRepo.save(commission);
 

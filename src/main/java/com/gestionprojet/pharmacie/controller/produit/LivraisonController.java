@@ -30,7 +30,7 @@ public class LivraisonController {
     public ModelAndView getAllLivraison(){
         ModelAndView mv= new ModelAndView("template");
         mv.addObject("page", "pages/liste/liste-livraison");
-        mv.addObject("liste", fabService.getAll());
+        mv.addObject("liste", livraisonRepo.findAll());
         return mv;
     }
 
@@ -38,7 +38,7 @@ public class LivraisonController {
     public ModelAndView toForm(@RequestParam(required=false) String message){
         ModelAndView mv = new ModelAndView("template");
         mv.addObject("page","pages/insertion/insert-livraison");
-        mv.addObject("listeProduit",prodRepo.findAll());
+        mv.addObject("listeFabrication", fabRepo.findAll());
         if (message!=null){
             mv.addObject("message",message);
         }
@@ -52,9 +52,17 @@ public class LivraisonController {
             livraison.setDaty(daty);
         } catch (Exception e) {
             e.printStackTrace();
-            return "redirect:/fabrication/form?message="+e.getMessage();
+            return "redirect:/livraison/form?message="+e.getMessage();
         }
-        return "redirect:/fabrication/form?message=Insertion%20reussi";
+        return "redirect:/livraison/form?message=Insertion%20reussi";
         
+    }
+
+    @GetMapping("/livraison/filtre")
+    public ModelAndView filtreProduit(@RequestParam LocalDate date_avant,@RequestParam LocalDate date_apres) {
+        ModelAndView mv = new ModelAndView("template");
+        mv.addObject("page", "pages/liste/liste-livraison");
+        mv.addObject("liste", livraisonRepo.getLivraisonfiltre(date_avant, date_apres));        
+        return mv;
     }
 }
