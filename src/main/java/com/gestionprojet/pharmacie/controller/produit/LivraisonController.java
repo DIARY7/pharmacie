@@ -50,6 +50,7 @@ public class LivraisonController {
         try {
             Livraison livraison = new Livraison(fabRepo.findById(id_fabrication).orElseThrow(()-> new Exception("Fabrication introuvable")), prix_unitaire);
             livraison.setDaty(daty);
+            livraisonRepo.save(livraison);
         } catch (Exception e) {
             e.printStackTrace();
             return "redirect:/livraison/form?message="+e.getMessage();

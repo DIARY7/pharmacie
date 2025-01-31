@@ -47,7 +47,7 @@
               <div class="mb-3">
                 <label for="" class="form-label">Date prix : </label>
                 <input
-                  type="number"
+                  type="date"
                   class="form-control"
                   name="date_prix"
                 />

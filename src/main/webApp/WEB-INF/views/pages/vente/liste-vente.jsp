@@ -55,8 +55,8 @@
                         <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong><%= vente.getId() %></strong></td>
                         <td><%= vente.getNombre() %></td>
                         <td><%= vente.getDaty() %></td>
-                        <td><%= vente.getFabrication().getProduit().getNom() %></td>
-                        <td> <%=  vente.getClient().getNom() %> </td>
+                        <td><%= vente.getLivraison().getFabrication().getProduit().getNom() %></td>
+                        <td> <%= vente.getClient().getNom() %> </td>
                     </tr>
             <%    }
             %>

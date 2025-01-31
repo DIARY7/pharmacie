@@ -12,13 +12,12 @@ import org.springframework.stereotype.Repository;
 @Repository
 
 public interface LivraisonRepo extends JpaRepository<Livraison, Integer> {
-    @Query("SELECT l FROM livraison l " +
-       "JOIN fabrication f ON f.id=l.fabrication.id "+
-       "WHERE f.id = :id AND l.daty <= :date"+
-       "ORDER BY l.daty DESC LIMIT 1")
+    @Query("SELECT l FROM Livraison l " +
+       "WHERE l.fabrication.id = :id AND l.daty <= :date "+
+       " ORDER BY l.daty DESC LIMIT 1")
     Livraison getLivraisonfarany(@Param("date") LocalDate date, @Param("id") int id);
 
-    @Query("SELECT l FROM livraison l " +
-       "WHERE l.daty >= :datedebut AND l.daty <= :datefin")
+    @Query("SELECT l FROM Livraison l " +
+       " WHERE l.daty >= :datedebut AND l.daty <= :datefin")
     List<Livraison> getLivraisonfiltre(@Param("datedebut") LocalDate datedebut, @Param("datefin") LocalDate datefin);
 }

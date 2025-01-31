@@ -134,3 +134,7 @@ CREATE TABLE commission(
 
 /* Mi-reinitialiser sequence */
 /* ALTER SEQUENCE public.produit_id_seq RESTART WITH 1; */
+ALTER TABLE vente
+ADD CONSTRAINT fk_livraison_vente
+FOREIGN KEY (id_livraison)
+REFERENCES livraison (id);

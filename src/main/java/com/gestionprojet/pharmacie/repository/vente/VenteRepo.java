@@ -14,9 +14,7 @@ import org.springframework.stereotype.Repository;
 
 public interface VenteRepo extends JpaRepository<Vente, Integer> {
     @Query("SELECT v FROM Vente v " +
-       "JOIN Fabrication f ON f.id = v.fabrication.id " +
-       "JOIN Produit p ON p.id = f.produit.id " +
-       "WHERE p.categorieProduit.id = :idCategorieProduit AND p.categorieAge.id = :idCategorieAge")
+       " WHERE v.livraison.fabrication.produit.categorieProduit.id = :idCategorieProduit AND v.livraison.fabrication.produit.categorieAge.id = :idCategorieAge")
     List<Vente> getFiltreVente(@Param("idCategorieProduit") int idCategorieProduit, @Param("idCategorieAge") int idCategorieAge);
 
     @Query("SELECT v FROM Vente v " +

@@ -70,6 +70,12 @@
               <div data-i18n="Basic">Fabrication</div>
             </a>
           </li>
+          <li class="menu-item">
+            <a href="/livraison/form" class="menu-link">
+              <div data-i18n="Basic">Livraison</div>
+            </a>
+          </li>
+
         </ul>
       </li>
 
@@ -104,6 +110,13 @@
               <div data-i18n="Basic">Fabrication</div>
             </a>
           </li>
+
+          <li class="menu-item">
+            <a href="/livraison" class="menu-link">
+              <div data-i18n="Basic">Livraison</div>
+            </a>
+          </li>
+
         </ul>
       </li>
 

@@ -86,7 +86,7 @@ public class VenteController {
     ,@RequestParam int id_client,@RequestParam int id_vendeur){
         try {
             Vente vente = new Vente(nombre,daty);
-            Fabrication fab = fabRepo.findById(id_fabrication).orElseThrow(()-> new Exception("Fabrication innexistant"));
+            //Fabrication fab = fabRepo.findById(id_fabrication).orElseThrow(()-> new Exception("Fabrication innexistant"));
             vente.setClient(clientRepo.findById(id_client).orElseThrow(()-> new Exception("Client innexistant")));
             Livraison livraison = venteService.getLivraison(daty,id_fabrication);
             vente.setLivraison(livraison);

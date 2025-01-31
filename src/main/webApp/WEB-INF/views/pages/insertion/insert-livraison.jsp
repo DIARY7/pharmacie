@@ -13,7 +13,7 @@
               <label for=""class="form-label" >Fabrication : </label>
               <select class="form-select" name="id_fabrication">
                 <% for(Fabrication fab: listeFabrication){ %>
-                  <option value="<%= fab.getId() %>"><%= fab.getNom()  %></option>
+                  <option value="<%= fab.getId() %>"><%= fab.getProduit().getNom()  %></option>
                 <% } %>
               </select>
             </div>

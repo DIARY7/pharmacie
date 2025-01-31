@@ -44,16 +44,13 @@
               <% 
                   for(Livraison livraison : listeLivraison){ %>
                       <tr>
-                          <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong><%= comDto.getId() %></strong></td>
-                          <td><%= comDto.getNom() %></td>
-                          <td><%= comDto.getTotal() %></td>
+                          <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong><%= livraison.getFabrication().getId() %></strong></td>
+                          <td><%= livraison.getFabrication().getProduit().getNom() %></td>
+                          <td><%= livraison.getPrixUnitaire() %></td>
+                          <td><%= livraison.getDaty() %> </td>
                       </tr>
               <%    }
               %>
-              </tr>
-              <tr>
-                <th style="text-align: center;font-size: 22px;" >Total</th>
-                <th colspan="3" style="text-align: center;font-size: 22px;" > <%= CommissionDto.getTotalCommission(listeCommission) %></th>
               </tr>
               </tbody>
           </table>
